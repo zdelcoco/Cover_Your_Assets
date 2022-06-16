@@ -27,9 +27,123 @@ CLASS testHand:
     IF VALID-OBJECT(oHand) THEN DELETE OBJECT oHand.
   END METHOD.
   
+  METHOD PRIVATE VOID dealHand():
+    DEFINE VARIABLE oCardDeck AS CLASS CardDeck NO-UNDO.
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    
+    oCardDeck = NEW CardDeck().
+    oCardDeck:shuffle().
+    
+    DO itx = 1 TO 4:
+      oHand:oCardsInHand[itx] = oCardDeck:deal().
+    END.
+  END.
+  
+  METHOD PRIVATE VOID printHand():
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DEFINE VARIABLE cPrintString AS CHARACTER NO-UNDO.
+    DO itx = 1 TO 4:
+      cPrintString = cPrintString + CHR(13) +
+                     oHand:oCardsInHand[itx]:cName + 
+                     " " + 
+                     STRING(oHand:oCardsInHand[itx]:iValue) +
+                     " " +
+                     oHand:oCardsInHand[itx]:cType.
+    END.
+    MESSAGE cPrintString VIEW-AS ALERT-BOX.
+  END.
+  
   @Test.
-  METHOD PUBLIC VOID HandExists():
+  METHOD PUBLIC VOID handExists():
     OPENEDGE.CORE.ASSERT:EQUALS(TRUE,VALID-OBJECT(oHand)).
-  END.   
+  END.  
+  
+  @Test.
+  METHOD PUBLIC VOID emptyHandExists():
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DO itx = 1 TO EXTENT(oHand:oCardsInHand):
+      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oCardsInHand[itx]:cType).
+    END.
+  END. 
+  
+  @Test.
+  METHOD PUBLIC VOID canDiscardUsingIntegerParam():    
+    DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.        
+    dealHand().    
+    oTempCard = oHand:discard(1).        
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID emptyCardInHandAfterDiscardUsingIntegerParam():
+    DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.    
+    dealHand().    
+    oTempCard = oHand:discard(1).    
+    OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oCardsInHand[1]:cType).      
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID cannotDiscardEmptyCardUsingIntegerParam():
+    DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.
+        
+    dealHand().    
+    oTempCard = oHand:discard(1).
+    oTempCard = oHand:discard(1).
+    
+    OPENEDGE.CORE.ASSERT:EQUALS(FALSE,VALID-OBJECT(oTempCard)).
+  END.    
+  
+  @Test.
+  METHOD PUBLIC VOID canDiscardUsingObjectParam():    
+    DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.        
+    dealHand().    
+    oTempCard = oHand:discard(oHand:oCardsInHand[1]).        
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID emptyCardInHandAfterDiscardUsingObjectParam():
+    DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.    
+    dealHand().    
+    oTempCard = oHand:discard(oHand:oCardsInHand[1]).    
+    OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oCardsInHand[1]:cType).      
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID cannotDiscardEmptyCardUsingObjectParam():
+    DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.
+        
+    dealHand().    
+    oTempCard = oHand:discard(oHand:oCardsInHand[1]).
+    oTempCard = oHand:discard(oHand:oCardsInHand[1]).
+    
+    OPENEDGE.CORE.ASSERT:EQUALS(FALSE,VALID-OBJECT(oTempCard)).
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID getNumCards():    
+    dealHand().    
+    OPENEDGE.CORE.ASSERT:EQUALS(4,oHand:iNumCards).        
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID getNumCardsAfterDiscard():    
+    DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.        
+    dealHand().    
+    oTempCard = oHand:discard(oHand:oCardsInHand[1]).
+    OPENEDGE.CORE.ASSERT:EQUALS(3,oHand:iNumCards).        
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID zeroCardsAfterDiscardingAll():    
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.  
+          
+    dealHand().    
+           
+    DO itx = 1 TO EXTENT(oHand:OCardsInHand):
+      oTempCard = oHand:discard(oHand:oCardsInHand[itx]).
+    END.
+
+    OPENEDGE.CORE.ASSERT:EQUALS(0,oHand:iNumCards).        
+  END.
       
 END CLASS.

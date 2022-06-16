@@ -1,0 +1,36 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : Hand
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Wed Jun 15 15:15:13 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Collections.List.
+USING Progress.Collections.IIterator.
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS Hand:
+  
+  DEFINE PUBLIC VARIABLE oCardsInHand AS List<Card> NO-UNDO.
+  DEFINE PRIVATE VARIABLE oTempCard AS CLASS Card NO-UNDO.
+
+  CONSTRUCTOR PUBLIC Hand():
+      
+  END CONSTRUCTOR.
+  
+  METHOD PUBLIC Card discard(INPUT ipiHandIndex AS INTEGER):
+    DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.
+    oTempCard = THIS-OBJECT:oCardsInHand:Get(ipiHandIndex). 
+  END.
+
+  DESTRUCTOR PUBLIC Hand():
+    IF VALID-OBJECT(oTempCard) THEN DELETE OBJECT oTempCard.
+  END DESTRUCTOR.
+
+END CLASS.

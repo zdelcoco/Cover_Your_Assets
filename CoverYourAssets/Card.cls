@@ -35,6 +35,8 @@ CLASS Card:
     THIS-OBJECT:cType  = IF THIS-OBJECT:cName = "Gold" OR
                             THIS-OBJECT:cName = "Silver" THEN
                            "Wild"
+                         ELSE IF THIS-OBJECT:cName = "" THEN
+                           "Empty"
                          ELSE
                            "Standard".
   END CONSTRUCTOR.
@@ -42,6 +44,12 @@ CLASS Card:
   METHOD PUBLIC LOGICAL compareCardName(INPUT ipoCard AS CLASS Card):
     RETURN THIS-OBJECT:cName = ipoCard:cName.
   END METHOD.
+  
+  METHOD PUBLIC VOID clearCard():
+    THIS-OBJECT:cName  = "".
+    THIS-OBJECT:iValue = 0.
+    THIS-OBJECT:cType  = "Empty".
+  END.
 
   DESTRUCTOR PUBLIC Card():
   END DESTRUCTOR.

@@ -1,0 +1,44 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : Hand
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Wed Jun 15 15:15:13 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS Hand:
+  
+  DEFINE PUBLIC VARIABLE oCardsInHand AS CLASS Card EXTENT 4 NO-UNDO.
+  DEFINE PRIVATE VARIABLE oTempCard AS CLASS Card NO-UNDO.
+
+  CONSTRUCTOR PUBLIC Hand():
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+
+    DO itx = 1 TO 4:
+      oCardsInHand[itx] = NEW Card("",0).
+    END.        
+  END CONSTRUCTOR.
+  
+  METHOD PUBLIC Card discard(INPUT ipoCard AS Card):
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.    
+
+    DO itx = 1 TO EXTENT(THIS-OBJECT:oCardsInHand):
+      IF THIS-OBJECT:oCardsInHand[itx] = ipoCard THEN
+      DO:        
+        RETURN THIS-OBJECT:oCardsInHand[itx].        
+      END.
+    END.        
+  END.
+
+  DESTRUCTOR PUBLIC Hand():
+    IF VALID-OBJECT(oTempCard) THEN DELETE OBJECT oTempCard.
+  END DESTRUCTOR.
+
+END CLASS.

@@ -1,0 +1,68 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testHand
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Wed Jun 15 15:17:29 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testHand:
+
+  DEFINE PRIVATE VARIABLE oHand AS CLASS Hand NO-UNDO.
+
+  @Setup.
+  METHOD PUBLIC VOID setUp():            
+    oHand = NEW Hand().
+  END METHOD.    
+
+  @TearDown.
+  METHOD PUBLIC VOID tearDown():        
+    IF VALID-OBJECT(oHand) THEN DELETE OBJECT oHand.
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID handExists():
+    OPENEDGE.CORE.ASSERT:EQUALS(TRUE,VALID-OBJECT(oHand)).
+  END.  
+  
+  @Test.
+  METHOD PUBLIC VOID emptyHandExists():
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DO itx = 1 TO EXTENT(oHand:oCardsInHand):
+      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oCardsInHand:Get(itx):cType).
+    END.
+  END. 
+  
+  @Test.
+  METHOD PUBLIC VOID canDiscard():    
+    DEFINE VARIABLE oCardDeck AS CLASS CardDeck NO-UNDO.
+    DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    oCardDeck = NEW CardDeck().
+    oCardDeck:shuffle().
+    
+    DO itx = 1 TO 4:
+      
+      //oHand:oCardsInHand:Add(oCardDeck:deal()).
+      
+      /*
+      MESSAGE oHand:oCardsInHand:Get(itx):cName 
+              oHand:oCardsInHand:Get(itx):iValue view-as alert-box.
+      */
+    END.
+    
+    oTempCard = oHand:discard(1).
+    
+    MESSAGE "discarded " oTempCard:cName VIEW-AS ALERT-BOX.
+
+  END.
+  
+      
+END CLASS.
