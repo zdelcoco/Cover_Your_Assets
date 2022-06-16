@@ -1,0 +1,34 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : Pile
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Wed Jun 15 15:15:13 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS Pile INHERITS CardDeck:
+  
+  DEFINE PROPERTY iFront AS INTEGER NO-UNDO
+    GET.
+    PRIVATE SET.
+    
+  DEFINE PROPERTY iEnd AS INTEGER NO-UNDO
+    GET.
+    PRIVATE SET. 
+
+  CONSTRUCTOR PUBLIC Pile():
+    THIS-OBJECT:iFront = 0.
+    THIS-OBJECT:iBack = 0.
+  END CONSTRUCTOR.
+
+  DESTRUCTOR PUBLIC Pile():
+  END DESTRUCTOR.
+
+END CLASS.

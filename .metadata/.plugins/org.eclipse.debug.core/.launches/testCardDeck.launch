@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="ablunit.launchType">
+    <stringAttribute key="ATTR_ABLUNIT_TESTCASE_NAME" value="C:\Users\zdelcoco\pdsoe_125_workspaces\Cover_Your_Assets\TestCoverYourAssets\tests\testCardDeck.cls"/>
+    <booleanAttribute key="ATTR_ABLUNIT_TEST_CASE_SELECTION" value="false"/>
+    <stringAttribute key="ATTR_ABLUNIT_TEST_FOLDER_NAME" value="C:\Users\zdelcoco\pdsoe_125_workspaces\Cover_Your_Assets\TestCoverYourAssets\tests"/>
+    <booleanAttribute key="ATTR_ABLUNIT_TEST_FOLDER_SELECTION" value="true"/>
+    <stringAttribute key="ATTR_ABLUNIT_TEST_NAME" value=""/>
+    <stringAttribute key="abl.client.PROVERSION" value="12.5 (64-bit)"/>
+    <booleanAttribute key="abl.databases.USE_PROJECT" value="true"/>
+    <stringAttribute key="abl.debug.ABL_PROGRAM" value="ABLUnitCore.r"/>
+    <stringAttribute key="abl.debug.ATTR_ABL_PROJECT_NAME" value="TestCoverYourAssets"/>
+    <stringAttribute key="abl.startup.WORKING_DIRECTORY" value="C:\Users\zdelcoco\pdsoe_125_workspaces\Cover_Your_Assets\TestCoverYourAssets"/>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/TestCoverYourAssets/tests/testCardDeck.cls"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="1"/>
+    </listAttribute>
+    <mapAttribute key="org.eclipse.debug.core.environmentVariables">
+        <mapEntry key="ATTR_ABLUNIT_EVENT_FILE" value="C:\Users\zdelcoco\pdsoe_125_workspaces\Cover_Your_Assets\.metadata\.plugins\com.progress.openedge.pdt.ablunit\input1655222444904"/>
+        <mapEntry key="ATTR_ABLUNIT_TESTCASE_NAME" value="C:\Users\zdelcoco\pdsoe_125_workspaces\Cover_Your_Assets\TestCoverYourAssets\tests\testCardDeck.cls"/>
+    </mapAttribute>
+</launchConfiguration>

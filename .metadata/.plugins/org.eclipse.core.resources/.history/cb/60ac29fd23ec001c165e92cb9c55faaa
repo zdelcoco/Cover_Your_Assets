@@ -1,0 +1,45 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : Card
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Tue Jun 14 09:26:02 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS Card: 
+  
+  DEFINE PROPERTY cType AS CHARACTER NO-UNDO 
+    GET. 
+    SET.
+    
+  DEFINE PROPERTY cName AS CHARACTER NO-UNDO 
+    GET. 
+    SET.
+    
+  DEFINE PROPERTY iValue AS INTEGER NO-UNDO
+    GET.
+    SET.
+
+  CONSTRUCTOR PUBLIC Card():
+    IF THIS-OBJECT:cName = "Silver" OR
+       THIS-OBJECT:cName = "Gold" THEN
+      cType = "Wild".
+    ELSE 
+      cType = "Standard".    
+  END CONSTRUCTOR.
+  
+  METHOD PUBLIC LOGICAL compareCardType(INPUT ipoCard AS CLASS Card):
+    RETURN THIS-OBJECT:cType = ipoCard:cType.
+  END METHOD.
+
+  DESTRUCTOR PUBLIC Card():
+  END DESTRUCTOR.
+
+END CLASS.

@@ -1,0 +1,102 @@
+!SESSION 2022-06-14 08:41:24.833 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.8
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-14 08:41:42.405
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.platform 1 0 2022-06-14 08:41:42.414
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - No action was needed while validating the OpenEdge installation path: C:\DLC\12.5. 
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-14 08:42:44.917
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY org.eclipse.ui 2 2 2022-06-14 08:43:49.957
+!MESSAGE com.openedge.pdt.text.views.ClassBrowserView: Deprecated relationship "fast" should be converted to "stack".
+!SESSION 2022-06-14 09:43:47.899 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.8
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -data C:\Users\zdelcoco\pdsoe_125_workspaces\cover_your_assets -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-14 09:43:54.038
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.platform 1 0 2022-06-14 09:43:54.047
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - No action was needed while validating the OpenEdge installation path: C:\DLC\12.5. 
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-14 09:43:56.202
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+!SESSION 2022-06-15 13:45:46.969 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.8
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -data C:\Users\zdelcoco\pdsoe_125_workspaces\cover_your_assets -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-15 13:45:52.857
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.platform 1 0 2022-06-15 13:45:52.883
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - No action was needed while validating the OpenEdge installation path: C:\DLC\12.5. 
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-15 13:45:55.013
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+!SESSION 2022-06-15 16:38:30.139 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.8
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2022-06-15 16:38:33.787
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-15 16:38:42.356
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.platform 1 0 2022-06-15 16:38:42.362
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - No action was needed while validating the OpenEdge installation path: C:\DLC\12.5. 
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-15 16:38:44.551
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.project 4 20001 2022-06-15 16:48:12.852
+!MESSAGE Tooling processing for update file failed for /CoverYourAssets/Pile.cls. error closing traversal
+!STACK 0
+com.progress.openedge.dependencymodule.GraphException: error closing traversal
+	at com.progress.openedge.dependencymodule.DependencyGraph.updateFile(DependencyGraph.java:592)
+	at com.openedge.pdt.project.dm.DMGraphManager.updateFile(DMGraphManager.java:118)
+	at com.openedge.pdt.project.codeinfo.CodeModelBuildManager$8.run(CodeModelBuildManager.java:648)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Couldn't generate file Vertex
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.generate(UpdatedFilesGenerator.java:98)
+	at com.progress.openedge.dependencymodule.DependencyGraph.updateFile(DependencyGraph.java:586)
+	... 3 more
+Caused by: java.lang.RuntimeException: Couldn't generate file Vertex
+	at com.progress.openedge.dependencymodule.generate.AddFilesGenerator.generate(AddFilesGenerator.java:88)
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.processUpdateForFile(UpdatedFilesGenerator.java:111)
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.generate(UpdatedFilesGenerator.java:91)
+	... 4 more
+
+!ENTRY com.openedge.pdt.project 4 20001 2022-06-15 16:48:23.093
+!MESSAGE Tooling processing for update file failed for /TestCoverYourAssets/tests/testPile.cls. error closing traversal
+!STACK 0
+com.progress.openedge.dependencymodule.GraphException: error closing traversal
+	at com.progress.openedge.dependencymodule.DependencyGraph.updateFile(DependencyGraph.java:592)
+	at com.openedge.pdt.project.dm.DMGraphManager.updateFile(DMGraphManager.java:118)
+	at com.openedge.pdt.project.codeinfo.CodeModelBuildManager$8.run(CodeModelBuildManager.java:648)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Couldn't generate file Vertex
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.generate(UpdatedFilesGenerator.java:98)
+	at com.progress.openedge.dependencymodule.DependencyGraph.updateFile(DependencyGraph.java:586)
+	... 3 more
+Caused by: java.lang.RuntimeException: Couldn't generate file Vertex
+	at com.progress.openedge.dependencymodule.generate.AddFilesGenerator.generate(AddFilesGenerator.java:88)
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.processUpdateForFile(UpdatedFilesGenerator.java:111)
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.generate(UpdatedFilesGenerator.java:91)
+	... 4 more

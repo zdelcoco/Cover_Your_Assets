@@ -1,0 +1,34 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testGame
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Tue Jun 14 08:44:40 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testGame:    
+
+    @Before.
+    METHOD PUBLIC VOID setUpBeforeClass():        
+        RETURN.
+    END METHOD.     
+   
+    @After.
+    METHOD PUBLIC VOID tearDownAfterClass():        
+        RETURN.
+    END METHOD.
+    
+    @Test.
+    METHOD PUBLIC VOID gameExists():
+        DEFINE VARIABLE oGame AS CLASS game.        
+        oGame = NEW game().
+    END METHOD. 
+     
+END CLASS.

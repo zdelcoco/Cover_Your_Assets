@@ -1,0 +1,25 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : Pile
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Wed Jun 15 15:15:13 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS Pile INHERITS CardDeck: 
+
+  CONSTRUCTOR PUBLIC Pile():
+    SUPER ().
+  END CONSTRUCTOR.
+
+  DESTRUCTOR PUBLIC Pile():
+  END DESTRUCTOR.
+
+END CLASS.

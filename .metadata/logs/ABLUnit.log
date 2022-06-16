@@ -1,0 +1,30 @@
+2022-06-15 16:48:12,859 [ERROR]  - Tooling processing for update file failed for /CoverYourAssets/Pile.cls. error closing traversal
+com.progress.openedge.dependencymodule.GraphException: error closing traversal
+	at com.progress.openedge.dependencymodule.DependencyGraph.updateFile(DependencyGraph.java:592)
+	at com.openedge.pdt.project.dm.DMGraphManager.updateFile(DMGraphManager.java:118)
+	at com.openedge.pdt.project.codeinfo.CodeModelBuildManager$8.run(CodeModelBuildManager.java:648)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Couldn't generate file Vertex
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.generate(UpdatedFilesGenerator.java:98)
+	at com.progress.openedge.dependencymodule.DependencyGraph.updateFile(DependencyGraph.java:586)
+	... 3 more
+Caused by: java.lang.RuntimeException: Couldn't generate file Vertex
+	at com.progress.openedge.dependencymodule.generate.AddFilesGenerator.generate(AddFilesGenerator.java:88)
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.processUpdateForFile(UpdatedFilesGenerator.java:111)
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.generate(UpdatedFilesGenerator.java:91)
+	... 4 more
+2022-06-15 16:48:23,094 [ERROR]  - Tooling processing for update file failed for /TestCoverYourAssets/tests/testPile.cls. error closing traversal
+com.progress.openedge.dependencymodule.GraphException: error closing traversal
+	at com.progress.openedge.dependencymodule.DependencyGraph.updateFile(DependencyGraph.java:592)
+	at com.openedge.pdt.project.dm.DMGraphManager.updateFile(DMGraphManager.java:118)
+	at com.openedge.pdt.project.codeinfo.CodeModelBuildManager$8.run(CodeModelBuildManager.java:648)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Couldn't generate file Vertex
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.generate(UpdatedFilesGenerator.java:98)
+	at com.progress.openedge.dependencymodule.DependencyGraph.updateFile(DependencyGraph.java:586)
+	... 3 more
+Caused by: java.lang.RuntimeException: Couldn't generate file Vertex
+	at com.progress.openedge.dependencymodule.generate.AddFilesGenerator.generate(AddFilesGenerator.java:88)
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.processUpdateForFile(UpdatedFilesGenerator.java:111)
+	at com.progress.openedge.dependencymodule.generate.UpdatedFilesGenerator.generate(UpdatedFilesGenerator.java:91)
+	... 4 more

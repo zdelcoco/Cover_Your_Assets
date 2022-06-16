@@ -1,0 +1,66 @@
+
+/*------------------------------------------------------------------------
+    File        : custom.p
+    Purpose     : 
+
+    Syntax      :
+
+    Description : 
+
+    Author(s)   : zdelcoco
+    Created     : Wed Jun 15 13:51:11 CDT 2022
+    Notes       :
+  ----------------------------------------------------------------------*/
+
+/* ***************************  Definitions  ************************** */
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+/* ********************  Preprocessor Definitions  ******************** */
+
+
+/* ***************************  Main Block  *************************** */
+DEF VAR iCnt AS INT64 NO-UNDO.
+DEF VAR cRes AS CHAR  NO-UNDO INIT "".
+DEF VAR cMix AS CHAR  NO-UNDO.
+DEFINE TEMP-TABLE alpha NO-UNDO
+  FIELD val AS INT64
+  FIELD mix AS CHAR.
+DEFINE TEMP-TABLE beta NO-UNDO
+  FIELD val AS INT64
+  FIELD mix AS CHAR.
+DO iCnt = 10 TO 90 BY 10:
+  CREATE alpha.
+  alpha.val = iCnt.
+  IF iCnt <= 30 THEN
+    alpha.mix = "A".
+  ELSE IF iCnt <= 60 THEN
+    alpha.mix = "B".
+  ELSE 
+    alpha.mix = "C".
+  RELEASE alpha.
+END.
+DO iCnt = 1 TO 9 BY 1:
+  CREATE beta.
+  beta.val = iCnt.
+  IF iCnt MODULO 3 = 1 THEN
+    beta.mix = "A".
+  ELSE IF iCnt MODULO 3 = 2 THEN
+    beta.mix = "B".
+  ELSE
+    beta.mix = "C".
+  RELEASE beta.
+END.
+FOR EACH alpha NO-LOCK,
+    EACH beta WHERE
+         beta.mix = alpha.mix 
+         NO-LOCK:
+  /* No odd numbers. */
+  IF beta.val MODULO 2 = 1 THEN
+    NEXT.
+  cMix = alpha.mix + ":" + STRING(alpha.val + beta.val).
+  ASSIGN
+    cRes = cMix               WHEN cRes = ""
+    cRes = cRes + ", " + cMix WHEN cRes <> "".
+END.
+MESSAGE cRes VIEW-AS ALERT-BOX.

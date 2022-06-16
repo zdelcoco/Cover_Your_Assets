@@ -1,0 +1,42 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testCard
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Tue Jun 14 09:24:29 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testCard:   
+  
+  DEFINE PRIVATE VARIABLE oCard AS CLASS Card NO-UNDO.
+
+  @Before.
+  METHOD PUBLIC VOID setUpBeforeClass(): 
+    RETURN.             
+  END METHOD.     
+ 
+  @After.
+  METHOD PUBLIC VOID tearDownAfterClass():        
+      IF VALID-OBJECT(oCard) THEN DELETE OBJECT oCard.
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID blankCardExists():  
+    oCard = NEW Card().
+    OPENEDGE.CORE.ASSERT:EQUALS(TRUE,VALID-OBJECT(oCard)).
+  END METHOD. 
+  
+  @Test.
+  METHOD PUBLIC VOID cardExists():  
+    oCard = NEW Card('test').
+    OPENEDGE.CORE.ASSERT:EQUALS(TRUE,VALID-OBJECT(oCard)).
+  END METHOD. 
+     
+END CLASS.

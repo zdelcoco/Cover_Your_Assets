@@ -1,0 +1,2 @@
+IF RANDOM(iNextCardInDeck - 1, iNumCards) = 0 THEN 1
+ELSE RANDOM(iNextCardInDeck - 1, iNumCards).

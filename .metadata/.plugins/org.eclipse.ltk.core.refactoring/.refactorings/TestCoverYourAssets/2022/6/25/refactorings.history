@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;TestCoverYourAssets/tests/testPile.cls&apos; to &apos;testHand.cls&apos;" description="Rename resource &apos;testPile.cls&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="tests/testPile.cls" name="testHand.cls" stamp="1655329710897" updateReferences="true"/>
+</session>
