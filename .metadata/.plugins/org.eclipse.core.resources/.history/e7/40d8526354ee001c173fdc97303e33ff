@@ -1,0 +1,35 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testGame
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Tue Jun 14 08:44:40 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testGame:   
+  
+  //DEFINE PRIVATE VARIABLE oGame AS CLASS Game NO-UNDO. 
+
+  @Before.
+  METHOD PUBLIC VOID setUpBeforeClass():        
+      var oGame = NEW game().
+  END METHOD.     
+ 
+  @After.
+  METHOD PUBLIC VOID tearDownAfterClass():        
+      DELETE OBJECT oGame.
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID gameExists():  
+      OPENEDGE.CORE.ASSERT:EQUALS(TRUE,VALID-OBJECT(oGame)).
+  END METHOD. 
+     
+END CLASS.

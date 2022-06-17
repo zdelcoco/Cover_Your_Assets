@@ -1,0 +1,12 @@
+STACK_TRACE 4 Invalid handle.  Not initialized or points to a deleted object. (3135)
+STACK_TRACE 4 canDiscard testHand at line 62  (C:\Users\zdelcoco\pdsoe_125_workspaces\Cover_Your_Assets\TestCoverYourAssets\tests\testHand.r)
+STACK_TRACE 4 InvokeTestMethod OpenEdge.ABLUnit.Model.TestClass at line 82  (OpenEdge/ABLUnit/Model/TestClass.r)
+STACK_TRACE 4 RunChild OpenEdge.ABLUnit.Model.TestCase at line 130  (OpenEdge/ABLUnit/Model/TestCase.r)
+STACK_TRACE 4 runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1470  (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+STACK_TRACE 4 runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1477  (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+STACK_TRACE 4 RunTests OpenEdge.ABLUnit.Runner.ABLRunner at line 436  (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+STACK_TRACE 4 ABLUnitCore.r at line 97  (ABLUnitCore.r)
+TEST_EXCEPTION 4
+ 1
+TEST_END 0 7309.85
+COMPLETE

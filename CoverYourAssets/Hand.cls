@@ -13,41 +13,13 @@ USING Progress.Lang.*.
 
 BLOCK-LEVEL ON ERROR UNDO, THROW.
 
-CLASS Hand:
+CLASS Hand INHERITS CardPile:
   
-  DEFINE PUBLIC VARIABLE oCardsInHand AS CLASS Card EXTENT 4 NO-UNDO.
   DEFINE PRIVATE VARIABLE oTempCard AS CLASS Card NO-UNDO.
-  
-  DEFINE PROPERTY iNumCards AS INTEGER NO-UNDO
-    GET():
-      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
-      iNumCards = 0.
-      DO itx = 1 TO EXTENT(oCardsInHand):
-        IF oCardsInHand[itx]:cType <> "Empty" THEN 
-          iNumCards = iNumCards + 1.
-      END.
-      RETURN iNumCards.
-    END GET.
-    PRIVATE SET.
 
-  CONSTRUCTOR PUBLIC Hand():
-    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
-
-    DO itx = 1 TO EXTENT(oCardsInHand):
-      oCardsInHand[itx] = NEW Card("",0).
-    END.        
+  CONSTRUCTOR PUBLIC Hand(ipiNumCards AS INTEGER):
+    SUPER(ipiNumCards).       
   END CONSTRUCTOR.
-  
-  METHOD PUBLIC Card discard(INPUT ipiHandIndex AS INTEGER):
-    IF THIS-OBJECT:oCardsInHand[ipiHandIndex]:cType = "Empty" THEN
-      RETURN ?.
-      
-    oTempCard = NEW Card(THIS-OBJECT:oCardsInHand[ipiHandIndex]:cName,
-                         THIS-OBJECT:oCardsInHand[ipiHandIndex]:iValue).      
-    oCardsInHand[ipiHandIndex]:clearCard().
-    
-    RETURN oTempCard.
-  END METHOD.
   
   METHOD PUBLIC Card discard(INPUT ipoCardToDiscard AS Card):
     DEFINE VARIABLE itx AS INTEGER NO-UNDO.
@@ -58,20 +30,30 @@ CLASS Hand:
     oTempCard = NEW Card(ipoCardToDiscard:cName,
                          ipoCardToDiscard:iValue).
                          
-    DO itx = 1 TO EXTENT(oCardsInHand):                              
-      IF ipoCardToDiscard:cName  = oCardsInHand[itx]:cName AND
-         ipoCardToDiscard:cType  = oCardsInHand[itx]:cType AND
-         ipoCardToDiscard:iValue = oCardsInHand[itx]:iValue THEN
+    DO itx = 1 TO EXTENT(oPileOfCards):                              
+      IF ipoCardToDiscard:cName  = oPileOfCards[itx]:cName AND
+         ipoCardToDiscard:cType  = oPileOfCards[itx]:cType AND
+         ipoCardToDiscard:iValue = oPileOfCards[itx]:iValue THEN
       DO:
-        oCardsInHand[itx]:clearCard().
+        oPileOfCards[itx]:clearCard().
         RETURN oTempCard.
       END.
-    END.
+    END.    
+  END METHOD. 
+  
+  METHOD PUBLIC Card discard(INPUT ipiHandIndex AS INTEGER):
+    IF THIS-OBJECT:oPileOfCards[ipiHandIndex]:cType = "Empty" THEN
+      RETURN ?.
+      
+    oTempCard = NEW Card(THIS-OBJECT:oPileOfCards[ipiHandIndex]:cName,
+                         THIS-OBJECT:oPileOfCards[ipiHandIndex]:iValue).      
+    oPileOfCards[ipiHandIndex]:clearCard().
     
-  END METHOD.    
+    RETURN oTempCard.
+  END METHOD.
 
-  DESTRUCTOR PUBLIC Hand():
-    IF VALID-OBJECT(oTempCard) THEN DELETE OBJECT oTempCard.
+  DESTRUCTOR PUBLIC Hand():  
+    IF VALID-OBJECT(oTempCard) THEN DELETE OBJECT oTempCard.  
   END DESTRUCTOR.
 
 END CLASS.

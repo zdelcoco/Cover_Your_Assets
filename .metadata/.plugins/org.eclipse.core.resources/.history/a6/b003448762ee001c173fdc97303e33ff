@@ -1,0 +1,88 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testDiscardPile
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 11:39:13 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testDiscardPile: 
+  
+  DEFINE PRIVATE VARIABLE oDiscardPile AS CLASS DiscardPile NO-UNDO.
+
+  @Before.
+  METHOD PUBLIC VOID setUpBeforeClass():    
+    RETURN.
+  END METHOD.  
+   
+  @Setup.
+  METHOD PUBLIC VOID setUpBeforeEachMethod():      
+      oDiscardPile = NEW DiscardPile(110).
+  END METHOD.
+    
+  @TearDown.
+  METHOD PUBLIC VOID tearDownAfterEachMethod():      
+      RETURN.
+  END METHOD.
+   
+  @After.
+  METHOD PUBLIC VOID tearDownAfterClass():     
+      IF VALID-OBJECT(oDiscardPile) THEN DELETE OBJECT oDiscardPile.
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID emptyDiscardPileExists():
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DO itx = 1 TO EXTENT(oDiscardPile:oPileOfCards):
+      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oDiscardPile:oPileOfCards[itx]:cType).
+    END.
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID addCardToDiscardPile():
+    DEFINE VARIABLE oTempCard AS Card NO-UNDO.
+    oTempCard = NEW Card("Silver", 25000).
+    oDiscardPile:addCard(oTempCard).
+    OPENEDGE.CORE.ASSERT:EQUALS("Wild",oDiscardPile:oPileOfCards[1]:cType).
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID removeCardFromDiscardPile():
+    DEFINE VARIABLE oTempCard AS Card NO-UNDO.
+    oTempCard = oDiscardPile:removeCard().
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID discardEntireHand():
+    DEFINE VARIABLE oDeck AS CLASS CardDeck NO-UNDO.
+    DEFINE VARIABLE oHand AS CLASS Hand NO-UNDO.
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DEFINE VARIABLE iEmptyCard AS INTEGER NO-UNDO.
+    DEFINE VARIABLE iValidCard AS INTEGER NO-UNDO.
+    
+    oDeck = NEW CardDeck(110).
+    oDeck:shuffle().
+    
+    oHand = NEW Hand(4).
+    DO itx = 1 TO EXTENT(oHand:oPileOfCards):
+      oHand:oPileOfCards[itx] = oDeck:deal().
+      oDiscardPile:addCard(oHand:discard(oHand:oPileOfCards[itx])).
+    END.    
+    
+    // hand should be empty
+    DO itx = 1 TO EXTENT(oHand:oPileOfCards):
+      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oPileOfCards[itx]:cType).
+    END.
+    
+    OPENEDGE.CORE.ASSERT:EQUALS(5,oDiscardPile:iTopOfStack).
+    
+  END.
+     
+END CLASS.

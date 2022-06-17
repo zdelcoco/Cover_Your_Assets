@@ -1,0 +1,39 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : DiscardPile
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 11:41:25 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS DiscardPile INHERITS CardPile: 
+  
+  DEFINE PROPERTY iTopOfStack AS INTEGER NO-UNDO
+    GET():
+      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+      DO itx = 1 TO EXTENT(oPileOfCards):
+        IF oPileOfCards[itx]:cType <> "Empty" THEN NEXT.
+        RETURN itx.
+      END.
+    END GET.
+    PRIVATE SET.
+
+  CONSTRUCTOR PUBLIC DiscardPile(ipiNumCards AS INTEGER):
+    SUPER(ipiNumCards).    
+  END CONSTRUCTOR.
+  
+  METHOD PUBLIC VOID addCard(INPUT ipoCard AS Card):
+    THIS-OBJECT:oPileOfCards[] = ipoCard.
+  END.
+
+  DESTRUCTOR PUBLIC DiscardPile():
+  END DESTRUCTOR.
+
+END CLASS.

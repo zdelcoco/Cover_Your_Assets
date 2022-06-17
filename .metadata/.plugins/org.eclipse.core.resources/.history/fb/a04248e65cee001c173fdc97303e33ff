@@ -1,0 +1,40 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testDiscardPile
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 11:39:13 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testDiscardPile: 
+  
+  DEFINE PRIVATE VARIABLE oDiscardPile AS CLASS DiscardPile NO-UNDO.
+
+  @Before.
+  METHOD PUBLIC VOID setUpBeforeClass():    
+    RETURN.
+  END METHOD.  
+   
+  @Setup.
+  METHOD PUBLIC VOID setUpBeforeEachMethod():      
+      oDiscardPile = NEW DiscardPile(110).
+  END METHOD.
+    
+  @TearDown.
+  METHOD PUBLIC VOID tearDownAfterEachMethod():      
+      RETURN.
+  END METHOD.
+   
+  @After.
+  METHOD PUBLIC VOID tearDownAfterClass():     
+      RETURN.
+  END METHOD.
+     
+END CLASS.

@@ -1,0 +1,66 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testCardPile
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 08:59:47 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testCardPile: 
+  
+  DEFINE PRIVATE VARIABLE oCardPile AS CLASS CardPile NO-UNDO.
+  DEFINE PRIVATE VARIABLE iLoopIndex   AS INTEGER NO-UNDO.
+
+  @Before.
+  METHOD PUBLIC VOID setUpBeforeClass():    
+    RETURN.
+  END METHOD.
+  
+  @Setup.
+  METHOD PUBLIC VOID setUpBeforeEachTest():      
+    RETURN.
+  END METHOD.
+    
+  @TearDown.
+  METHOD PUBLIC VOID tearDownAfterEachTest():        
+    RETURN.
+  END METHOD.     
+   
+  @After.
+  METHOD PUBLIC VOID tearDownAfterClass():        
+    RETURN.
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID cardPileExists():
+    oCardPile = NEW CardPile(1).
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID createPileWithOneCard():
+    DEFINE VARIABLE iCardCount AS INTEGER NO-UNDO.
+    oCardPile = NEW CardPile(1).
+    DO iLoopIndex = 1 TO EXTENT(oCardPile:oPileOfCards):
+      iCardCount = iCardCount + 1.
+    END.
+    OPENEDGE.CORE.ASSERT:EQUALS(1,iCardCount).
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID createPileWithOneCard():
+    DEFINE VARIABLE iCardCount AS INTEGER NO-UNDO.
+    oCardPile = NEW CardPile(100).
+    DO iLoopIndex = 1 TO EXTENT(oCardPile:oPileOfCards):
+      iCardCount = iCardCount + 1.
+    END.
+    OPENEDGE.CORE.ASSERT:EQUALS(100,iCardCount).
+  END METHOD.
+     
+END CLASS.

@@ -130,3 +130,33 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.openedge.pdt.platform 4 0 2022-06-16 14:32:29.568
 !MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+!SESSION 2022-06-17 08:55:05.849 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.8
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-17 08:57:02.289
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.platform 1 0 2022-06-17 08:57:02.300
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - No action was needed while validating the OpenEdge installation path: C:\DLC\12.5. 
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-17 08:57:05.186
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+!SESSION 2022-06-17 10:21:04.542 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.8
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -data C:\Users\zdelcoco\pdsoe_125_workspaces\cover_your_assets -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-17 10:21:10.608
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.platform 1 0 2022-06-17 10:21:10.616
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - No action was needed while validating the OpenEdge installation path: C:\DLC\12.5. 
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-17 10:21:12.890
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.

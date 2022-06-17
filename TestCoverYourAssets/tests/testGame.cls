@@ -19,7 +19,7 @@ CLASS testGame:
 
   @Before.
   METHOD PUBLIC VOID setUpBeforeClass():        
-      oGame = NEW game().
+    oGame = NEW game().
   END METHOD.     
  
   @After.

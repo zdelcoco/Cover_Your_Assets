@@ -19,7 +19,7 @@ CLASS testCardDeck:
 
   @Setup.
   METHOD PUBLIC VOID setUpBeforeClass(): 
-    oCardDeck = NEW CardDeck().             
+    oCardDeck = NEW CardDeck(110).             
   END METHOD.     
  
   @Teardown.
@@ -68,7 +68,7 @@ CLASS testCardDeck:
   
   @Test.
   METHOD PUBLIC VOID oneHundredTenCardsInDeck():
-    OPENEDGE.CORE.ASSERT:EQUALS(110,oCardDeck:iNumCards).   
+    OPENEDGE.CORE.ASSERT:EQUALS(110,oCardDeck:iNumberOfValidCards).   
   END METHOD.
   
   @Test.
@@ -118,7 +118,7 @@ CLASS testCardDeck:
   METHOD PUBLIC VOID oneHundredNineCardsAfterDealingOne():
     DEFINE VARIABLE oDealtCard AS CLASS Card NO-UNDO.
     oDealtCard = oCardDeck:deal().   
-    OPENEDGE.CORE.ASSERT:EQUALS(109,oCardDeck:iNumCards).
+    OPENEDGE.CORE.ASSERT:EQUALS(109,oCardDeck:iNumberOfValidCards).
   END.
   
   @Test.

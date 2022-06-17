@@ -19,7 +19,7 @@ CLASS testHand:
 
   @Setup.
   METHOD PUBLIC VOID setUp():            
-    oHand = NEW Hand().
+    oHand = NEW Hand(4).
   END METHOD.    
 
   @TearDown.
@@ -31,11 +31,11 @@ CLASS testHand:
     DEFINE VARIABLE oCardDeck AS CLASS CardDeck NO-UNDO.
     DEFINE VARIABLE itx AS INTEGER NO-UNDO.
     
-    oCardDeck = NEW CardDeck().
+    oCardDeck = NEW CardDeck(110).
     oCardDeck:shuffle().
     
     DO itx = 1 TO 4:
-      oHand:oCardsInHand[itx] = oCardDeck:deal().
+      oHand:oPileOfCards[itx] = oCardDeck:deal().
     END.
   END.
   
@@ -44,11 +44,11 @@ CLASS testHand:
     DEFINE VARIABLE cPrintString AS CHARACTER NO-UNDO.
     DO itx = 1 TO 4:
       cPrintString = cPrintString + CHR(13) +
-                     oHand:oCardsInHand[itx]:cName + 
+                     oHand:oPileOfCards[itx]:cName + 
                      " " + 
-                     STRING(oHand:oCardsInHand[itx]:iValue) +
+                     STRING(oHand:oPileOfCards[itx]:iValue) +
                      " " +
-                     oHand:oCardsInHand[itx]:cType.
+                     oHand:oPileOfCards[itx]:cType.
     END.
     MESSAGE cPrintString VIEW-AS ALERT-BOX.
   END.
@@ -61,8 +61,8 @@ CLASS testHand:
   @Test.
   METHOD PUBLIC VOID emptyHandExists():
     DEFINE VARIABLE itx AS INTEGER NO-UNDO.
-    DO itx = 1 TO EXTENT(oHand:oCardsInHand):
-      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oCardsInHand[itx]:cType).
+    DO itx = 1 TO EXTENT(oHand:oPileOfCards):
+      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oPileOfCards[itx]:cType).
     END.
   END. 
   
@@ -78,7 +78,7 @@ CLASS testHand:
     DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.    
     dealHand().    
     oTempCard = oHand:discard(1).    
-    OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oCardsInHand[1]:cType).      
+    OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oPileOfCards[1]:cType).      
   END.
   
   @Test.
@@ -96,15 +96,15 @@ CLASS testHand:
   METHOD PUBLIC VOID canDiscardUsingObjectParam():    
     DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.        
     dealHand().    
-    oTempCard = oHand:discard(oHand:oCardsInHand[1]).        
+    oTempCard = oHand:discard(oHand:oPileOfCards[1]).        
   END.
   
   @Test.
   METHOD PUBLIC VOID emptyCardInHandAfterDiscardUsingObjectParam():
     DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.    
     dealHand().    
-    oTempCard = oHand:discard(oHand:oCardsInHand[1]).    
-    OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oCardsInHand[1]:cType).      
+    oTempCard = oHand:discard(oHand:oPileOfCards[1]).    
+    OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oPileOfCards[1]:cType).      
   END.
   
   @Test.
@@ -112,8 +112,8 @@ CLASS testHand:
     DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.
         
     dealHand().    
-    oTempCard = oHand:discard(oHand:oCardsInHand[1]).
-    oTempCard = oHand:discard(oHand:oCardsInHand[1]).
+    oTempCard = oHand:discard(oHand:oPileOfCards[1]).
+    oTempCard = oHand:discard(oHand:oPileOfCards[1]).
     
     OPENEDGE.CORE.ASSERT:EQUALS(FALSE,VALID-OBJECT(oTempCard)).
   END.
@@ -121,15 +121,15 @@ CLASS testHand:
   @Test.
   METHOD PUBLIC VOID getNumCards():    
     dealHand().    
-    OPENEDGE.CORE.ASSERT:EQUALS(4,oHand:iNumCards).        
+    OPENEDGE.CORE.ASSERT:EQUALS(4,oHand:iNumberOfValidCards).        
   END.
   
   @Test.
   METHOD PUBLIC VOID getNumCardsAfterDiscard():    
     DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.        
     dealHand().    
-    oTempCard = oHand:discard(oHand:oCardsInHand[1]).
-    OPENEDGE.CORE.ASSERT:EQUALS(3,oHand:iNumCards).        
+    oTempCard = oHand:discard(oHand:oPileOfCards[1]).
+    OPENEDGE.CORE.ASSERT:EQUALS(3,oHand:iNumberOfValidCards).        
   END.
   
   @Test.
@@ -139,11 +139,11 @@ CLASS testHand:
           
     dealHand().    
            
-    DO itx = 1 TO EXTENT(oHand:OCardsInHand):
-      oTempCard = oHand:discard(oHand:oCardsInHand[itx]).
+    DO itx = 1 TO EXTENT(oHand:oPileOfCards):
+      oTempCard = oHand:discard(oHand:oPileOfCards[itx]).
     END.
 
-    OPENEDGE.CORE.ASSERT:EQUALS(0,oHand:iNumCards).        
+    OPENEDGE.CORE.ASSERT:EQUALS(0,oHand:iNumberOfValidCards).        
   END.
       
 END CLASS.

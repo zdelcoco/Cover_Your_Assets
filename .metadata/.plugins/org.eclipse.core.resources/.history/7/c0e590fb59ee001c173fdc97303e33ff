@@ -1,0 +1,81 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : CardPile
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 10:45:42 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS CardPile: 
+  
+  DEFINE PUBLIC VARIABLE oPileOfCards AS CLASS Card NO-UNDO EXTENT.
+  
+  DEFINE PROPERTY iNumCards AS INTEGER NO-UNDO
+    GET():
+      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+      iNumCards = 0.
+      DO itx = 1 TO EXTENT(oPileOfCards):
+        IF oPileOfCards[itx]:cType <> "Empty" THEN 
+          iNumCards = iNumCards + 1.
+      END.
+      RETURN iNumCards.
+    END GET.
+    PRIVATE SET.
+    
+  
+  DEFINE PRIVATE VARIABLE oTempCard AS CLASS Card NO-UNDO.
+  DEFINE PRIVATE VARIABLE iLoopIndex   AS INTEGER NO-UNDO.
+
+  CONSTRUCTOR PUBLIC CardPile(ipiNumCards AS INTEGER):    
+    THIS-OBJECT:iNumCards = ipiNumCards.
+    
+    EXTENT(oPileOfCards)  = THIS-OBJECT:iNumCards.    
+       
+    DO iLoopIndex = 1 TO EXTENT(oPileOfCards):
+      oPileOfCards[iLoopIndex] = NEW Card("",0).
+    END.    
+  END CONSTRUCTOR.  
+  
+  METHOD PUBLIC Card discard(INPUT ipoCardToDiscard AS Card):
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    
+    IF ipoCardToDiscard:cType = "Empty" THEN
+      RETURN ?.
+      
+    oTempCard = NEW Card(ipoCardToDiscard:cName,
+                         ipoCardToDiscard:iValue).
+                         
+    DO itx = 1 TO EXTENT(oPileOfCards):                              
+      IF ipoCardToDiscard:cName  = oPileOfCards[itx]:cName AND
+         ipoCardToDiscard:cType  = oPileOfCards[itx]:cType AND
+         ipoCardToDiscard:iValue = oPileOfCards[itx]:iValue THEN
+      DO:
+        oPileOfCards[itx]:clearCard().
+        RETURN oTempCard.
+      END.
+    END.    
+  END METHOD. 
+  
+  METHOD PUBLIC Card discard(INPUT ipiHandIndex AS INTEGER):
+    IF THIS-OBJECT:oPileOfCards[ipiHandIndex]:cType = "Empty" THEN
+      RETURN ?.
+      
+    oTempCard = NEW Card(THIS-OBJECT:oPileOfCards[ipiHandIndex]:cName,
+                         THIS-OBJECT:oPileOfCards[ipiHandIndex]:iValue).      
+    oPileOfCards[ipiHandIndex]:clearCard().
+    
+    RETURN oTempCard.
+  END METHOD.
+
+  DESTRUCTOR PUBLIC CardPile():
+    IF VALID-OBJECT(oTempCard) THEN DELETE OBJECT oTempCard.
+  END DESTRUCTOR.
+
+END CLASS.

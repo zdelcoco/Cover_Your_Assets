@@ -8,13 +8,17 @@
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Hand"/>
+		<item key="selection" value="Empty"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="empty"/>
+			<item value="iNumCards"/>
+			<item value="CardDeck"/>
+			<item value="oCardsInHand"/>
 			<item value="Pile"/>
 			<item value="iCardInDeck"/>
 			<item value="cType"/>
@@ -23,6 +27,8 @@
 			<item value="oGame"/>
 		</list>
 		<list key="replacehistory">
+			<item value="iNumberOfValidCards"/>
+			<item value="oPileOfCards"/>
 			<item value="Hand"/>
 			<item value="cName"/>
 			<item value="iCardInDeck"/>
@@ -32,8 +38,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="826"/>
-		<item key="DIALOG_Y_ORIGIN" value="268"/>
+		<item key="DIALOG_X_ORIGIN" value="869"/>
+		<item key="DIALOG_Y_ORIGIN" value="261"/>
 		<item key="DIALOG_WIDTH" value="284"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

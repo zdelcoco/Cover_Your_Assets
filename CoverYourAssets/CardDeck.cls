@@ -13,16 +13,16 @@ USING Progress.Lang.*.
 
 BLOCK-LEVEL ON ERROR UNDO, THROW.
 
-CLASS CardDeck: 
+CLASS CardDeck INHERITS CardPile: 
   
   DEFINE PUBLIC VARIABLE oDeck AS CLASS Card EXTENT 110 NO-UNDO.
   
-  DEFINE PROPERTY iNumCards AS INTEGER NO-UNDO
+  DEFINE OVERRIDE PROPERTY iNumberOfValidCards AS INTEGER NO-UNDO
     GET.
     PRIVATE SET.
               
-  CONSTRUCTOR PUBLIC CardDeck (): 
-    SUPER().         
+  CONSTRUCTOR PUBLIC CardDeck(ipiNumberOfValidCards AS INTEGER): 
+    SUPER(ipiNumberOfValidCards).         
     THIS-OBJECT:fill().  
   END CONSTRUCTOR.  
   
@@ -52,7 +52,7 @@ CLASS CardDeck:
       END.            
     END.     
     
-    iNumCards = 110.   
+    iNumberOfValidCards = 110.   
   END METHOD.  
   
   METHOD PRIVATE INTEGER getRandomNumber():
@@ -72,11 +72,11 @@ CLASS CardDeck:
     DEFINE VARIABLE iRandomDeckIndex AS INTEGER NO-UNDO.    
     DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.
     
-    DO iNextCardInDeck = 1 TO iNumCards:
-      iRandomDeckIndex        = IF iNextCardInDeck = iNumCards 
+    DO iNextCardInDeck = 1 TO iNumberOfValidCards:
+      iRandomDeckIndex        = IF iNextCardInDeck = iNumberOfValidCards 
                                   THEN iNextCardInDeck
                                 ELSE
-                                  RANDOM(iNextCardInDeck, iNumCards).
+                                  RANDOM(iNextCardInDeck, iNumberOfValidCards).
       oTempCard               = oDeck[iNextCardInDeck].
       oDeck[iNextCardInDeck]  = oDeck[iRandomDeckIndex].
       oDeck[iRandomDeckIndex] = oTempCard.
@@ -84,11 +84,11 @@ CLASS CardDeck:
   END.
   
   METHOD PUBLIC Card deal():
-    DEFINE VARIABLE iNumCardsHold AS INTEGER NO-UNDO.
-    IF iNumCards = 0 THEN RETURN ?.
-    iNumCardsHold = iNumCards.  // hold on to value because we can't 
-    iNumCards = iNumCards - 1.  // decrement after returning value
-    RETURN THIS-OBJECT:oDeck[iNumCardsHold].
+    DEFINE VARIABLE iNumberOfValidCardsHold AS INTEGER NO-UNDO.
+    IF iNumberOfValidCards = 0 THEN RETURN ?.
+    iNumberOfValidCardsHold = iNumberOfValidCards.  // hold on to value because we can't 
+    iNumberOfValidCards = iNumberOfValidCards - 1.  // decrement after returning value
+    RETURN THIS-OBJECT:oDeck[iNumberOfValidCardsHold].
   END METHOD.
 
   DESTRUCTOR PUBLIC CardDeck():
