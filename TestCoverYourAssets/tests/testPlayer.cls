@@ -1,0 +1,53 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testPlayer
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 13:52:44 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testPlayer:
+  
+  DEFINE PRIVATE VARIABLE oPlayer AS CLASS Player NO-UNDO.
+
+  @Before.
+  METHOD PUBLIC VOID setUpBeforeClass():    
+    RETURN.
+  END METHOD.
+
+  @Setup.
+  METHOD PUBLIC VOID setUp():        
+    RETURN.
+  END METHOD.
+
+  @TearDown.
+  METHOD PUBLIC VOID tearDown():      
+    RETURN.
+  END METHOD.
+
+  @After.
+  METHOD PUBLIC VOID tearDownAfterClass():      
+    RETURN.
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID playerExists():
+    oPlayer = NEW Player(1).
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID playerNameGetsCapitalized():
+    oPlayer = NEW Player(1).
+    oPlayer:cPlayerName = "johnny appleseed THE THIRD".
+    
+    OPENEDGE.CORE.ASSERT:EQUALS("Johnny Appleseed The Third",oPlayer:cPlayerName).
+  END.
+     
+END CLASS.

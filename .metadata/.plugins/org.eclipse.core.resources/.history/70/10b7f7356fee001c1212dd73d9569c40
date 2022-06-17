@@ -1,0 +1,25 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : Player
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 13:54:17 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS Player: 
+
+  CONSTRUCTOR PUBLIC Player():
+    SUPER ().    
+  END CONSTRUCTOR.
+
+  DESTRUCTOR PUBLIC Player ( ):
+  END DESTRUCTOR.
+
+END CLASS.

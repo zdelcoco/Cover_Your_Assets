@@ -1,0 +1,40 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testAsset
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 13:38:47 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testAsset:
+  
+  DEFINE VARIABLE oTestAsset AS CLASS AssetPile NO-UNDO.
+  
+  @Before.
+  METHOD PUBLIC VOID setUpBeforeClass():    
+    RETURN.
+  END METHOD.
+
+  @Setup.
+  METHOD PUBLIC VOID setUp():      
+    RETURN.
+  END METHOD.
+
+  @TearDown.
+  METHOD PUBLIC VOID tearDown():      
+    RETURN.
+  END METHOD.
+
+  @After.
+  METHOD PUBLIC VOID tearDownAfterClass():        
+    RETURN.
+  END METHOD.
+     
+END CLASS.

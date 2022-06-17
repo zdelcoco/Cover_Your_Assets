@@ -160,3 +160,18 @@ Command-line arguments:  -data C:\Users\zdelcoco\pdsoe_125_workspaces\cover_your
 
 !ENTRY com.openedge.pdt.platform 4 0 2022-06-17 10:21:12.890
 !MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+!SESSION 2022-06-17 12:43:39.870 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.8
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-17 12:43:58.056
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.platform 1 0 2022-06-17 12:43:58.068
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - No action was needed while validating the OpenEdge installation path: C:\DLC\12.5. 
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-17 12:44:01.004
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.

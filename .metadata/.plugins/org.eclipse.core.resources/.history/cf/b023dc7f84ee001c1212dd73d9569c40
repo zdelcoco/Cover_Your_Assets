@@ -1,0 +1,73 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testAsset
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 13:38:47 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testAsset:
+  
+  DEFINE VARIABLE oAssetPile AS CLASS AssetPile NO-UNDO.
+  
+  @Before.
+  METHOD PUBLIC VOID setUpBeforeClass():    
+    RETURN.
+  END METHOD.
+
+  @Setup.
+  METHOD PUBLIC VOID setUp():      
+    RETURN.
+  END METHOD.
+
+  @TearDown.
+  METHOD PUBLIC VOID tearDown():      
+    RETURN.
+  END METHOD.
+
+  @After.
+  METHOD PUBLIC VOID tearDownAfterClass():        
+    RETURN.
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID emptyStack():
+    oAssetPile = NEW AssetPile().
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID returnNumberOfValidStacks():
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DEFINE VARIABLE oTempCard1 AS CLASS Card NO-UNDO.
+    DEFINE VARIABLE oTempCard2 AS CLASS Card NO-UNDO.
+    DEFINE VARIABLE oTempStack AS CLASS CardPile NO-UNDO.    
+    
+    oTempCard1 = NEW Card('Gold', 50000).
+    oTempCard2 = NEW Card('Gold', 50000).
+    
+    oTempStack = NEW CardPile(2).   
+    oTempStack:oPileOfCards[1] = oTempCard1.
+    oTempStack:oPileOfCards[2] = oTempCard2.
+    
+    oAssetPile = NEW AssetPile().
+    
+    oAssetPile:addStack(oTempStack).
+    
+    // this sucks, i need to refactor the CardPile class a bit
+    DO itx = 1 TO EXTENT(oAssetPile:oStackPile[oAssetPile:iTopOfStackAsset - 1]):
+      DISPLAY oAssetPile:oStackPile[oAssetPile:iTopOfStackAsset - 1]:oPileOfCards[itx]:cName.
+      PAUSE.
+    END.      
+    
+    
+  END METHOD.
+  
+     
+END CLASS.

@@ -1,0 +1,54 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : AssetPile
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 13:42:32 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS AssetPile INHERITS CardPile: 
+  
+  DEFINE PRIVATE VARIABLE oStackPile AS CLASS CardPile EXTENT 55 NO-UNDO.
+    
+  DEFINE PROPERTY iNumberOfValidStacks AS INTEGER NO-UNDO
+    GET():
+      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+      iNumberOfValidstacks = 0.
+      DO itx = 1 TO EXTENT(oStackPile):
+        IF oStackPile[itx]:oPileOfCards[1]:cType <> "Empty" THEN 
+          iNumberOfValidStacks = iNumberOfValidStacks + 1.
+      END.
+      RETURN iNumberOfValidStacks.
+    END GET.
+    PRIVATE SET. 
+    
+  DEFINE PROPERTY iTopOfStackAsset AS INTEGER NO-UNDO
+    GET():
+      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+      DO itx = 1 TO EXTENT(oStackPile):
+        IF oStackPile[itx]:oPileOfCards[1]:cType <> "Empty" THEN NEXT.
+        iTopOfStackAsset = itx.
+        RETURN iTopOfStackAsset.
+      END.
+    END GET.
+    PRIVATE SET.
+
+  CONSTRUCTOR PUBLIC AssetPile(ipiNumCards AS INTEGER):
+    SUPER(ipiNumCards).    
+  END CONSTRUCTOR.
+  
+  METHOD PUBLIC LOGICAL addStack(INPUT ipoStack AS CardPile):
+    THIS-OBJECT:oStackPile[iTopOfStackAsset] = ipoStack.
+  END METHOD.  
+
+  DESTRUCTOR PUBLIC AssetPile():
+  END DESTRUCTOR.
+
+END CLASS.
