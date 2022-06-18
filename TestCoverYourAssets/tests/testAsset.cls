@@ -54,8 +54,8 @@ CLASS testAsset:
     oTempCard2 = NEW Card('Gold', 50000).
     
     oTempStack = NEW AssetPile(2).   
-    oTempStack:oPileOfCards[1] = oTempCard1.
-    oTempStack:oPileOfCards[2] = oTempCard2.
+    oTempStack:oCardArray[1] = oTempCard1.
+    oTempStack:oCardArray[2] = oTempCard2.
     
     oPlayer = NEW Player(1).
     

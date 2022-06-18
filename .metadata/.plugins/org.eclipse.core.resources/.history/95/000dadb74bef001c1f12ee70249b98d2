@@ -1,0 +1,23 @@
+
+/*------------------------------------------------------------------------
+    File        : test.p
+    Purpose     : 
+
+    Syntax      :
+
+    Description : 
+
+    Author(s)   : zdelcoco
+    Created     : Sat Jun 18 15:44:07 CDT 2022
+    Notes       :
+  ----------------------------------------------------------------------*/
+
+/* ***************************  Definitions  ************************** */
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+/* ********************  Preprocessor Definitions  ******************** */
+
+
+/* ***************************  Main Block  *************************** */
+disp INTEGER(ROUND((TIME / DAY(TODAY) / 1000 ),0 )).

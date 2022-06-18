@@ -13,39 +13,15 @@ USING Progress.Lang.*.
 
 BLOCK-LEVEL ON ERROR UNDO, THROW.
 
-CLASS DiscardPile INHERITS CardPile: 
-  
-  DEFINE PRIVATE VARIABLE oTempCard AS CLASS Card NO-UNDO.
-  
-  DEFINE PROPERTY iTopOfStack AS INTEGER NO-UNDO
-    GET():
-      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
-      DO itx = 1 TO EXTENT(oPileOfCards):
-        IF oPileOfCards[itx]:cType <> "Empty" THEN NEXT.
-        iTopOfStack = itx.
-        RETURN iTopOfStack.
-      END.
-    END GET.
-    PRIVATE SET.
+CLASS DiscardPile INHERITS CardPile:    
 
   CONSTRUCTOR PUBLIC DiscardPile(ipiNumCards AS INTEGER):
     SUPER(ipiNumCards).    
   END CONSTRUCTOR.
   
   METHOD PUBLIC VOID addCard(INPUT ipoCard AS Card):
-    THIS-OBJECT:oPileOfCards[iTopOfStack] = ipoCard.
-  END.
-  
-  METHOD PUBLIC Card removeCard():
-    IF iTopOfStack = 1 THEN RETURN ?.
-    
-    oTempCard = NEW Card(THIS-OBJECT:oPileOfCards[iTopOfStack]:cName,
-                         THIS-OBJECT:oPileOfCards[iTopOfStack]:iValue).
-                         
-    THIS-OBJECT:oPileOfCards[iTopOfStack]:clearCard().                         
-    
-    RETURN oTempCard.
-  END.
+    THIS-OBJECT:oCardArray[iTopOfStack] = ipoCard.
+  END.  
 
   DESTRUCTOR PUBLIC DiscardPile():
   END DESTRUCTOR.

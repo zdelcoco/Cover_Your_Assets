@@ -18,12 +18,12 @@ CLASS testCardDeck:
   DEFINE PRIVATE VARIABLE oCardDeck AS CLASS CardDeck NO-UNDO.
 
   @Setup.
-  METHOD PUBLIC VOID setUpBeforeClass(): 
+  METHOD PUBLIC VOID setUpBeforeEachTest(): 
     oCardDeck = NEW CardDeck(110).             
   END METHOD.     
  
   @Teardown.
-  METHOD PUBLIC VOID tearDownAfterClass():        
+  METHOD PUBLIC VOID tearDownAfterEachTest():        
     IF VALID-OBJECT(oCardDeck) THEN DELETE OBJECT oCardDeck.
   END METHOD.
   
@@ -31,8 +31,8 @@ CLASS testCardDeck:
     DEFINE VARIABLE itx AS INTEGER NO-UNDO.
     DEFINE VARIABLE iCardCount AS INTEGER NO-UNDO.
     
-    DO itx = 1 TO EXTENT(oCardDeck:oDeck):     
-      IF oCardDeck:oDeck[itx]:cName = ipcName THEN 
+    DO itx = 1 TO EXTENT(oCardDeck:oCardArray):     
+      IF oCardDeck:oCardArray[itx]:cName = ipcName THEN 
         iCardCount = iCardCount + 1.
     END.
     
@@ -42,9 +42,9 @@ CLASS testCardDeck:
   METHOD PRIVATE INTEGER getValueOfCardType(INPUT ipcName AS CHARACTER):
     DEFINE VARIABLE itx AS INTEGER NO-UNDO.
     
-    DO itx = 1 TO EXTENT(oCardDeck:oDeck):
-      IF oCardDeck:oDeck[itx]:cName = ipcName THEN 
-        RETURN oCardDeck:oDeck[itx]:iValue.
+    DO itx = 1 TO EXTENT(oCardDeck:oCardArray):
+      IF oCardDeck:oCardArray[itx]:cName = ipcName THEN 
+        RETURN oCardDeck:oCardArray[itx]:iValue.
     END.
   END METHOD.
   
@@ -55,14 +55,14 @@ CLASS testCardDeck:
  
   @Test.
   METHOD PUBLIC VOID emptyCardDeckExists():
-    OPENEDGE.CORE.ASSERT:EQUALS(110,EXTENT(oCardDeck:oDeck)).
+    OPENEDGE.CORE.ASSERT:EQUALS(110,EXTENT(oCardDeck:oCardArray)).
   END.
   
   @Test.
   METHOD PUBLIC VOID fillCardDeck():
     DEFINE VARIABLE itx AS INTEGER NO-UNDO.     
-    DO itx = 1 TO EXTENT(oCardDeck:oDeck):        
-      OPENEDGE.CORE.ASSERT:NOTEQUAL("",oCardDeck:oDeck[itx]:cName).     
+    DO itx = 1 TO EXTENT(oCardDeck:oCardArray):        
+      OPENEDGE.CORE.ASSERT:NOTEQUAL("",oCardDeck:oCardArray[itx]:cName).     
     END.    
   END.
   
@@ -109,26 +109,29 @@ CLASS testCardDeck:
   @Test.
   METHOD PUBLIC VOID dealCard():
     DEFINE VARIABLE oDealtCard AS CLASS Card NO-UNDO.
-    oDealtCard = oCardDeck:deal().   
+        
+    oDealtCard = oCardDeck:deal(). 
     OPENEDGE.CORE.ASSERT:EQUALS(TRUE,VALID-OBJECT(oDealtCard)). 
-    IF VALID-OBJECT(oDealtCard) THEN DELETE OBJECT oDealtCard. 
   END.
   
   @Test.
   METHOD PUBLIC VOID oneHundredNineCardsAfterDealingOne():
     DEFINE VARIABLE oDealtCard AS CLASS Card NO-UNDO.
-    oDealtCard = oCardDeck:deal().   
+        
+    oDealtCard = oCardDeck:deal(). 
     OPENEDGE.CORE.ASSERT:EQUALS(109,oCardDeck:iNumberOfValidCards).
   END.
   
   @Test.
   METHOD PUBLIC VOID dealReturnsNullAfterDealingFullDeck():
+    oCardDeck = NEW CardDeck(110).
     DEFINE VARIABLE oDealtCard AS CLASS Card     NO-UNDO.
     DEFINE VARIABLE itx AS INTEGER NO-UNDO.
-    DO itx = 1 TO 110:
+    DO itx = 1 TO 110:      
       oDealtCard = oCardDeck:deal().
-    END.
-    oDealtCard = oCardDeck:deal().
+    END.    
+                 
+    oDealtCard = oCardDeck:deal().               
     OPENEDGE.CORE.ASSERT:IsNull(oDealtCard).
   END.
   

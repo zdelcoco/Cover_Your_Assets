@@ -47,7 +47,7 @@ CLASS testCardPile:
   METHOD PUBLIC VOID createPileWithOneCard():
     DEFINE VARIABLE iCardCount AS INTEGER NO-UNDO.
     oCardPile = NEW CardPile(1).
-    DO iLoopIndex = 1 TO EXTENT(oCardPile:oPileOfCards):
+    DO iLoopIndex = 1 TO EXTENT(oCardPile:oCardArray):
       iCardCount = iCardCount + 1.
     END.
     OPENEDGE.CORE.ASSERT:EQUALS(1,iCardCount).
@@ -57,7 +57,7 @@ CLASS testCardPile:
   METHOD PUBLIC VOID createPileWithOneHundredCards():
     DEFINE VARIABLE iCardCount AS INTEGER NO-UNDO.
     oCardPile = NEW CardPile(100).
-    DO iLoopIndex = 1 TO EXTENT(oCardPile:oPileOfCards):
+    DO iLoopIndex = 1 TO EXTENT(oCardPile:oCardArray):
       iCardCount = iCardCount + 1.
     END.
     OPENEDGE.CORE.ASSERT:EQUALS(100,iCardCount).

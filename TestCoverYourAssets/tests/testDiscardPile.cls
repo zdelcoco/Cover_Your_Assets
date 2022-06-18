@@ -40,8 +40,8 @@ CLASS testDiscardPile:
   @Test.
   METHOD PUBLIC VOID emptyDiscardPileExists():
     DEFINE VARIABLE itx AS INTEGER NO-UNDO.
-    DO itx = 1 TO EXTENT(oDiscardPile:oPileOfCards):
-      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oDiscardPile:oPileOfCards[itx]:cType).
+    DO itx = 1 TO EXTENT(oDiscardPile:oCardArray):
+      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oDiscardPile:oCardArray[itx]:cType).
     END.
   END.
   
@@ -50,7 +50,7 @@ CLASS testDiscardPile:
     DEFINE VARIABLE oTempCard AS Card NO-UNDO.
     oTempCard = NEW Card("Silver", 25000).
     oDiscardPile:addCard(oTempCard).
-    OPENEDGE.CORE.ASSERT:EQUALS("Wild",oDiscardPile:oPileOfCards[1]:cType).
+    OPENEDGE.CORE.ASSERT:EQUALS("Wild",oDiscardPile:oCardArray[1]:cType).
   END.
   
   @Test.
@@ -61,27 +61,27 @@ CLASS testDiscardPile:
   
   @Test.
   METHOD PUBLIC VOID discardEntireHand():
-    DEFINE VARIABLE oDeck AS CLASS CardDeck NO-UNDO.
+    DEFINE VARIABLE oCardArray AS CLASS CardDeck NO-UNDO.
     DEFINE VARIABLE oHand AS CLASS Hand NO-UNDO.
     DEFINE VARIABLE itx AS INTEGER NO-UNDO.
     DEFINE VARIABLE iEmptyCard AS INTEGER NO-UNDO.
     
-    oDeck = NEW CardDeck(110).
-    oDeck:shuffle().
+    oCardArray = NEW CardDeck(110).
+    oCardArray:shuffle().
     
     oHand = NEW Hand(4).
-    DO itx = 1 TO EXTENT(oHand:oPileOfCards):
-      oHand:oPileOfCards[itx] = oDeck:deal().
-      oDiscardPile:addCard(oHand:discard(oHand:oPileOfCards[itx])).
-    END.    
+    DO itx = 1 TO EXTENT(oHand:oCardArray):
+      oHand:oCardArray[itx] = oCardArray:deal().
+      oDiscardPile:addCard(oHand:discard(oHand:oCardArray[itx])).     
+    END.           
     
     // hand should be empty
-    DO itx = 1 TO EXTENT(oHand:oPileOfCards):
-      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oPileOfCards[itx]:cType).
+    DO itx = 1 TO EXTENT(oHand:oCardArray):
+      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oCardArray[itx]:cType).
     END.
     
-    DO itx = 1 TO EXTENT(oDiscardPile:oPileOfCards):
-      IF oDiscardPile:oPileOfCards[itx]:cType = "Empty" THEN
+    DO itx = 1 TO EXTENT(oDiscardPile:oCardArray):
+      IF oDiscardPile:oCardArray[itx]:cType = "Empty" THEN
         iEmptyCard = iEmptyCard + 1.
     END.    
     // we should have 106 "empty" spots (110 minus 4 added cards)
@@ -92,7 +92,6 @@ CLASS testDiscardPile:
     
     // top of stack should be 5, since we've added 4 cards
     OPENEDGE.CORE.ASSERT:EQUALS(5,oDiscardPile:iTopOfStack).
-
   END.
      
 END CLASS.

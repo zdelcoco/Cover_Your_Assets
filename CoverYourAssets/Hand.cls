@@ -30,24 +30,24 @@ CLASS Hand INHERITS CardPile:
     oTempCard = NEW Card(ipoCardToDiscard:cName,
                          ipoCardToDiscard:iValue).
                          
-    DO itx = 1 TO EXTENT(oPileOfCards):                              
-      IF ipoCardToDiscard:cName  = oPileOfCards[itx]:cName AND
-         ipoCardToDiscard:cType  = oPileOfCards[itx]:cType AND
-         ipoCardToDiscard:iValue = oPileOfCards[itx]:iValue THEN
+    DO itx = 1 TO EXTENT(oCardArray):                              
+      IF ipoCardToDiscard:cName  = oCardArray[itx]:cName AND
+         ipoCardToDiscard:cType  = oCardArray[itx]:cType AND
+         ipoCardToDiscard:iValue = oCardArray[itx]:iValue THEN
       DO:
-        oPileOfCards[itx]:clearCard().
+        oCardArray[itx]:clearCard().
         RETURN oTempCard.
       END.
     END.    
   END METHOD. 
   
   METHOD PUBLIC Card discard(INPUT ipiHandIndex AS INTEGER):
-    IF THIS-OBJECT:oPileOfCards[ipiHandIndex]:cType = "Empty" THEN
+    IF THIS-OBJECT:oCardArray[ipiHandIndex]:cType = "Empty" THEN
       RETURN ?.
       
-    oTempCard = NEW Card(THIS-OBJECT:oPileOfCards[ipiHandIndex]:cName,
-                         THIS-OBJECT:oPileOfCards[ipiHandIndex]:iValue).      
-    oPileOfCards[ipiHandIndex]:clearCard().
+    oTempCard = NEW Card(THIS-OBJECT:oCardArray[ipiHandIndex]:cName,
+                         THIS-OBJECT:oCardArray[ipiHandIndex]:iValue).      
+    oCardArray[ipiHandIndex]:clearCard().
     
     RETURN oTempCard.
   END METHOD.

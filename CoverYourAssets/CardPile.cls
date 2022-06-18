@@ -15,33 +15,61 @@ BLOCK-LEVEL ON ERROR UNDO, THROW.
 
 CLASS CardPile: 
   
-  DEFINE PUBLIC  VARIABLE oPileOfCards AS CLASS Card NO-UNDO EXTENT.    
+  DEFINE PUBLIC  VARIABLE oCardArray AS CLASS Card NO-UNDO EXTENT.    
   DEFINE PRIVATE VARIABLE iLoopIndex   AS INTEGER    NO-UNDO.
+  DEFINE PRIVATE VARIABLE oTempCard AS CLASS Card NO-UNDO.  
   
   DEFINE PROPERTY iPileSize AS INTEGER NO-UNDO
     GET.
-    PRIVATE SET.
+    PRIVATE SET.       
     
   DEFINE PROPERTY iNumberOfValidCards AS INTEGER NO-UNDO
     GET():
       DEFINE VARIABLE itx AS INTEGER NO-UNDO.
       iNumberOfValidCards = 0.
-      DO itx = 1 TO EXTENT(oPileOfCards):
-        IF oPileOfCards[itx]:cType <> "Empty" THEN 
+      DO itx = 1 TO EXTENT(oCardArray):
+        IF oCardArray[itx]:cType <> "Empty" THEN 
           iNumberOfValidCards = iNumberOfValidCards + 1.
       END.
       RETURN iNumberOfValidCards.
     END GET.
     PRIVATE SET.     
+    
+  DEFINE PROPERTY iTopOfStack AS INTEGER NO-UNDO
+    GET():
+      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+      DO itx = 1 TO EXTENT(THIS-OBJECT:oCardArray):
+        IF oCardArray[itx]:cType <> "Empty" THEN NEXT.
+        iTopOfStack = itx.
+        RETURN iTopOfStack.
+      END.
+      RETURN EXTENT(THIS-OBJECT:oCardArray).
+    END GET.
+    PRIVATE SET.    
 
   CONSTRUCTOR PUBLIC CardPile(ipiNumCards AS INTEGER):    
     THIS-OBJECT:iPileSize = ipiNumCards.    
-    EXTENT(oPileOfCards)  = THIS-OBJECT:iPileSize.    
+    EXTENT(oCardArray)  = THIS-OBJECT:iPileSize.    
        
-    DO iLoopIndex = 1 TO EXTENT(oPileOfCards):
-      oPileOfCards[iLoopIndex] = NEW Card("",0).
+    DO iLoopIndex = 1 TO EXTENT(oCardArray):
+      oCardArray[iLoopIndex] = NEW Card("",0).
     END.    
-  END CONSTRUCTOR.      
+  END CONSTRUCTOR.    
+  
+  METHOD PROTECTED LOGICAL isLastValidCard(INPUT ipiIndexOfCardInArray AS INTEGER):
+    RETURN ipiIndexOfCardInArray = iNumberOfValidCards.
+  END METHOD.
+  
+  METHOD PUBLIC Card removeCard():
+    IF iTopOfStack = 1 THEN RETURN ?.
+    
+    oTempCard = NEW Card(THIS-OBJECT:oCardArray[iNumberOfValidCards]:cName,
+                         THIS-OBJECT:oCardArray[iNumberOfValidCards]:iValue).
+                         
+    THIS-OBJECT:oCardArray[iNumberOfValidCards]:clearCard().                         
+    
+    RETURN oTempCard.
+  END.  
 
   DESTRUCTOR PUBLIC CardPile():    
   END DESTRUCTOR.

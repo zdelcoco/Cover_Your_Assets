@@ -2,8 +2,9 @@
 <launchConfiguration type="ablunit.launchType">
     <stringAttribute key="ATTR_ABLUNIT_TESTCASE_NAME" value="C:\Users\zdelcoco\pdsoe_125_workspaces\Cover_Your_Assets\TestCoverYourAssets\tests\testDiscardPile.cls"/>
     <booleanAttribute key="ATTR_ABLUNIT_TEST_CASE_SELECTION" value="true"/>
-    <stringAttribute key="abl.client.PROVERSION" value="12.5"/>
-    <booleanAttribute key="abl.client.USE_TTY" value="false"/>
+    <booleanAttribute key="ATTR_ABLUNIT_TEST_FOLDER_SELECTION" value="false"/>
+    <stringAttribute key="ATTR_ABLUNIT_TEST_NAME" value=""/>
+    <stringAttribute key="abl.client.PROVERSION" value="12.5 (64-bit)"/>
     <booleanAttribute key="abl.databases.USE_PROJECT" value="true"/>
     <stringAttribute key="abl.debug.ABL_PROGRAM" value="ABLUnitCore.r"/>
     <stringAttribute key="abl.debug.ATTR_ABL_PROJECT_NAME" value="TestCoverYourAssets"/>
@@ -14,5 +15,8 @@
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="1"/>
     </listAttribute>
-    <mapAttribute key="org.eclipse.debug.core.environmentVariables"/>
+    <mapAttribute key="org.eclipse.debug.core.environmentVariables">
+        <mapEntry key="ATTR_ABLUNIT_EVENT_FILE" value="C:\Users\zdelcoco\pdsoe_125_workspaces\Cover_Your_Assets\.metadata\.plugins\com.progress.openedge.pdt.ablunit\input1655586429475"/>
+        <mapEntry key="ATTR_ABLUNIT_TESTCASE_NAME" value="C:\Users\zdelcoco\pdsoe_125_workspaces\Cover_Your_Assets\TestCoverYourAssets\tests\testDiscardPile.cls"/>
+    </mapAttribute>
 </launchConfiguration>

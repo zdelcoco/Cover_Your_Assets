@@ -1,0 +1,171 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testCardDeck
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Tue Jun 14 10:58:01 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testCardDeck:
+  
+  DEFINE PRIVATE VARIABLE oCardDeck AS CLASS CardDeck NO-UNDO.
+
+  @Before.
+  METHOD PUBLIC VOID setUpBeforeEachTest(): 
+    oCardDeck = NEW CardDeck(110).             
+  END METHOD.     
+ 
+  @After.
+  METHOD PUBLIC VOID tearDownAfterEachTest():        
+    IF VALID-OBJECT(oCardDeck) THEN DELETE OBJECT oCardDeck.
+  END METHOD.
+  
+  METHOD PRIVATE INTEGER getQuantityOfCardType(INPUT ipcName AS CHARACTER):
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DEFINE VARIABLE iCardCount AS INTEGER NO-UNDO.
+    
+    DO itx = 1 TO EXTENT(oCardDeck:oCardArray):     
+      IF oCardDeck:oCardArray[itx]:cName = ipcName THEN 
+        iCardCount = iCardCount + 1.
+    END.
+    
+    RETURN iCardCount.
+  END METHOD.
+  
+  METHOD PRIVATE INTEGER getValueOfCardType(INPUT ipcName AS CHARACTER):
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    
+    DO itx = 1 TO EXTENT(oCardDeck:oCardArray):
+      IF oCardDeck:oCardArray[itx]:cName = ipcName THEN 
+        RETURN oCardDeck:oCardArray[itx]:iValue.
+    END.
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID cardDeckObjectExists():
+    OPENEDGE.CORE.ASSERT:EQUALS(TRUE,VALID-OBJECT(oCardDeck)).
+  END.
+ 
+  @Test.
+  METHOD PUBLIC VOID emptyCardDeckExists():
+    OPENEDGE.CORE.ASSERT:EQUALS(110,EXTENT(oCardDeck:oCardArray)).
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID fillCardDeck():
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.     
+    DO itx = 1 TO EXTENT(oCardDeck:oCardArray):        
+      OPENEDGE.CORE.ASSERT:NOTEQUAL("",oCardDeck:oCardArray[itx]:cName).     
+    END.    
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID oneHundredTenCardsInDeck():
+    OPENEDGE.CORE.ASSERT:EQUALS(110,oCardDeck:iNumberOfValidCards).   
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID tenPiggyBankCards():
+    OPENEDGE.CORE.ASSERT:EQUALS(10,getQuantityOfCardType("Piggy Bank")).    
+  END METHOD.  
+  
+  @Test.
+  METHOD PUBLIC VOID tenStampCollectionCards():
+    OPENEDGE.CORE.ASSERT:EQUALS(10,getQuantityOfCardType("Stamp Collection")).    
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID eightSilverCards():
+    OPENEDGE.CORE.ASSERT:EQUALS(8,getQuantityOfCardType("Silver")).    
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID fourGoldCards():
+    OPENEDGE.CORE.ASSERT:EQUALS(4,getQuantityOfCardType("Gold")).    
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID homeIsWorth20000():
+    OPENEDGE.CORE.ASSERT:EQUALS(20000,getValueOfCardType("Home")).    
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID silverIsWorth25000():
+    OPENEDGE.CORE.ASSERT:EQUALS(25000,getValueOfCardType("Silver")).    
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID goldIsWorth50000():
+    OPENEDGE.CORE.ASSERT:EQUALS(50000,getValueOfCardType("Gold")).    
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID dealCard():
+    oCardDeck = NEW CardDeck(110).
+    DEFINE VARIABLE oDealtCard AS CLASS Card NO-UNDO.
+        
+    oDealtCard = oCardDeck:deal(). 
+
+    OPENEDGE.CORE.ASSERT:EQUALS(TRUE,VALID-OBJECT(oDealtCard)). 
+
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID oneHundredNineCardsAfterDealingOne():
+    oCardDeck = NEW CardDeck(110).
+    DEFINE VARIABLE oDealtCard AS CLASS Card NO-UNDO.
+        
+    oDealtCard = oCardDeck:deal(). 
+
+    OPENEDGE.CORE.ASSERT:EQUALS(109,oCardDeck:iNumberOfValidCards).
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID dealReturnsNullAfterDealingFullDeck():
+    oCardDeck = NEW CardDeck(110).
+    DEFINE VARIABLE oDealtCard AS CLASS Card     NO-UNDO.
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DO itx = 1 TO 110:
+      oDealtCard = oCardDeck:deal().
+    END.    
+    disp oDealCard:cName.    
+    oDealtCard = oCardDeck:deal().
+    
+    OPENEDGE.CORE.ASSERT:IsNull(oDealtCard).
+  END.
+  
+  @Ignore.
+  @Test.
+  METHOD PUBLIC VOID canShuffle():
+   oCardDeck:shuffle().
+  END.
+  
+  @Ignore.
+  @Test.
+  METHOD PUBLIC VOID cardsAreOutOfOrderAfterShuffle():
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DEFINE VARIABLE lFirstFourAreGold AS LOGICAL NO-UNDO.
+    DEFINE VARIABLE oDealtCards AS CLASS Card EXTENT 5 NO-UNDO.
+    
+    oCardDeck:shuffle().
+    
+    DO itx = 1 TO EXTENT(oDealtCards):
+      oDealtCards[itx] = oCardDeck:deal().
+    END.
+    
+    lFirstFourAreGold =  oDealtCards[1]:cName = "Gold" AND
+                         oDealtCards[2]:cName = "Gold" AND
+                         oDealtCards[3]:cName = "Gold" AND
+                         oDealtCards[4]:cName = "Gold".
+    
+    OPENEDGE.CORE.ASSERT:EQUALS(FALSE,lFirstFourAreGold).    
+  END.
+         
+END CLASS.

@@ -42,7 +42,7 @@ CLASS Player:
       DEFINE VARIABLE itx AS INTEGER NO-UNDO.
       iNumberOfValidstacks = 0.
       DO itx = 1 TO EXTENT(oPlayerStack):
-        IF oPlayerStack[itx]:oPileOfCards[1]:cType <> "Empty" THEN 
+        IF oPlayerStack[itx]:oCardArray[1]:cType <> "Empty" THEN 
           iNumberOfValidStacks = iNumberOfValidStacks + 1.
       END.
       RETURN iNumberOfValidStacks.
@@ -53,7 +53,7 @@ CLASS Player:
     GET():
       DEFINE VARIABLE itx AS INTEGER NO-UNDO.
       DO itx = 1 TO EXTENT(oPlayerStack):
-        IF oPlayerStack[itx]:oPileOfCards[1]:cType <> "Empty" THEN NEXT.
+        IF oPlayerStack[itx]:oCardArray[1]:cType <> "Empty" THEN NEXT.
         iTopOfStackAsset = itx.
         RETURN iTopOfStackAsset.
       END.

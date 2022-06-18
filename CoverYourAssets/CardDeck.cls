@@ -13,13 +13,7 @@ USING Progress.Lang.*.
 
 BLOCK-LEVEL ON ERROR UNDO, THROW.
 
-CLASS CardDeck INHERITS CardPile: 
-  
-  DEFINE PUBLIC VARIABLE oDeck AS CLASS Card EXTENT 110 NO-UNDO.
-  
-  DEFINE OVERRIDE PROPERTY iNumberOfValidCards AS INTEGER NO-UNDO
-    GET.
-    PRIVATE SET.
+CLASS CardDeck INHERITS CardPile:   
               
   CONSTRUCTOR PUBLIC CardDeck(ipiNumberOfValidCards AS INTEGER): 
     SUPER(ipiNumberOfValidCards).         
@@ -30,38 +24,36 @@ CLASS CardDeck INHERITS CardPile:
     DEFINE VARIABLE iCardGroup AS INTEGER NO-UNDO.     
     
     DO iCardGroup = 1 TO 10:                      
-      oDeck[iCardGroup]      = NEW Card("Piggy Bank", 5000).         
-      oDeck[iCardGroup + 10] = NEW Card("Cash Under The Mattress", 5000).
-      oDeck[iCardGroup + 20] = NEW Card("Baseball Cards", 5000).                   
-      oDeck[iCardGroup + 30] = NEW Card("Stamp Collection", 5000).
-      oDeck[iCardGroup + 40] = NEW Card("Coin Collection", 5000).
-      oDeck[iCardGroup + 50] = NEW Card("Bank Account", 10000).
-      oDeck[iCardGroup + 60] = NEW Card("Stocks", 10000).
-      oDeck[iCardGroup + 70] = NEW Card("Classic Auto", 15000).
-      oDeck[iCardGroup + 80] = NEW Card("Jewels", 15000).  
+      oCardArray[iCardGroup]      = NEW Card("Piggy Bank", 5000).         
+      oCardArray[iCardGroup + 10] = NEW Card("Cash Under The Mattress", 5000).
+      oCardArray[iCardGroup + 20] = NEW Card("Baseball Cards", 5000).                   
+      oCardArray[iCardGroup + 30] = NEW Card("Stamp Collection", 5000).
+      oCardArray[iCardGroup + 40] = NEW Card("Coin Collection", 5000).
+      oCardArray[iCardGroup + 50] = NEW Card("Bank Account", 10000).
+      oCardArray[iCardGroup + 60] = NEW Card("Stocks", 10000).
+      oCardArray[iCardGroup + 70] = NEW Card("Classic Auto", 15000).
+      oCardArray[iCardGroup + 80] = NEW Card("Jewels", 15000).  
 
       IF iCardGroup <= 8 THEN
       DO:
-        oDeck[iCardGroup + 90] = NEW Card("Home", 20000).
-        oDeck[iCardGroup + 98] = NEW Card("Silver", 25000). 
+        oCardArray[iCardGroup + 90] = NEW Card("Home", 20000).
+        oCardArray[iCardGroup + 98] = NEW Card("Silver", 25000). 
       END.      
 
       IF iCardGroup <= 4 THEN
       DO:   
-        oDeck[iCardGroup + 106] = NEW Card("Gold", 50000).    
+        oCardArray[iCardGroup + 106] = NEW Card("Gold", 50000).    
       END.            
     END.     
-    
-    iNumberOfValidCards = 110.   
+      
   END METHOD.  
   
   METHOD PRIVATE INTEGER getRandomNumber():
-    RETURN INTEGER(ROUND(TIME / DAY(TODAY),0 )).
+    RETURN INTEGER(ROUND((TIME / DAY(TODAY) / 500),0 )).
   END.
   
   METHOD PUBLIC VOID shuffle():
-    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
-    
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.    
     DO itx = 1 TO getRandomNumber():
       THIS-OBJECT:shuffleCards().
     END.    
@@ -72,23 +64,19 @@ CLASS CardDeck INHERITS CardPile:
     DEFINE VARIABLE iRandomDeckIndex AS INTEGER NO-UNDO.    
     DEFINE VARIABLE oTempCard AS CLASS Card NO-UNDO.
     
-    DO iNextCardInDeck = 1 TO iNumberOfValidCards:
-      iRandomDeckIndex        = IF iNextCardInDeck = iNumberOfValidCards 
-                                  THEN iNextCardInDeck
-                                ELSE
-                                  RANDOM(iNextCardInDeck, iNumberOfValidCards).
-      oTempCard               = oDeck[iNextCardInDeck].
-      oDeck[iNextCardInDeck]  = oDeck[iRandomDeckIndex].
-      oDeck[iRandomDeckIndex] = oTempCard.
+    DO iNextCardInDeck  = 1 TO iNumberOfValidCards:
+       iRandomDeckIndex = IF isLastValidCard(iNextCardInDeck) 
+                            THEN iNextCardInDeck
+                          ELSE
+                            RANDOM(iNextCardInDeck, iNumberOfValidCards).
+      oTempCard                    = oCardArray[iNextCardInDeck].
+      oCardArray[iNextCardInDeck]  = oCardArray[iRandomDeckIndex].
+      oCardArray[iRandomDeckIndex] = oTempCard.
     END.    
   END.
   
   METHOD PUBLIC Card deal():
-    DEFINE VARIABLE iNumberOfValidCardsHold AS INTEGER NO-UNDO.
-    IF iNumberOfValidCards = 0 THEN RETURN ?.
-    iNumberOfValidCardsHold = iNumberOfValidCards.  // hold on to value because we can't 
-    iNumberOfValidCards = iNumberOfValidCards - 1.  // decrement after returning value
-    RETURN THIS-OBJECT:oDeck[iNumberOfValidCardsHold].
+    RETURN THIS-OBJECT:removeCard().
   END METHOD.
 
   DESTRUCTOR PUBLIC CardDeck():

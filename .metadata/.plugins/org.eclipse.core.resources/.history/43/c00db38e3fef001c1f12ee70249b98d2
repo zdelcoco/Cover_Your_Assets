@@ -1,0 +1,49 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : CardPile
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 10:45:42 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS CardPile: 
+  
+  DEFINE PUBLIC  VARIABLE oCardArray AS CLASS Card NO-UNDO EXTENT.    
+  DEFINE PRIVATE VARIABLE iLoopIndex   AS INTEGER    NO-UNDO.
+  
+  DEFINE PROPERTY iPileSize AS INTEGER NO-UNDO
+    GET.
+    PRIVATE SET.
+    
+  DEFINE PROPERTY iNumberOfValidCards AS INTEGER NO-UNDO
+    GET():
+      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+      iNumberOfValidCards = 0.
+      DO itx = 1 TO EXTENT(oCardArray):
+        IF oCardArray[itx]:cType <> "Empty" THEN 
+          iNumberOfValidCards = iNumberOfValidCards + 1.
+      END.
+      RETURN iNumberOfValidCards.
+    END GET.
+    PRIVATE SET.     
+
+  CONSTRUCTOR PUBLIC CardPile(ipiNumCards AS INTEGER):    
+    THIS-OBJECT:iPileSize = ipiNumCards.    
+    EXTENT(oCardArray)  = THIS-OBJECT:iPileSize.    
+       
+    DO iLoopIndex = 1 TO EXTENT(oCardArray):
+      oCardArray[iLoopIndex] = NEW Card("",0).
+    END.    
+  END CONSTRUCTOR.      
+
+  DESTRUCTOR PUBLIC CardPile():    
+  END DESTRUCTOR.
+
+END CLASS.
