@@ -39,34 +39,29 @@ CLASS testAsset:
   
   @Test.
   METHOD PUBLIC VOID emptyStack():
-    oAssetPile = NEW AssetPile().
+    oAssetPile = NEW AssetPile(2).
   END.
   
   @Test.
-  METHOD PUBLIC VOID returnNumberOfValidStacks():
+  METHOD PUBLIC VOID addStack():
     DEFINE VARIABLE itx AS INTEGER NO-UNDO.
     DEFINE VARIABLE oTempCard1 AS CLASS Card NO-UNDO.
     DEFINE VARIABLE oTempCard2 AS CLASS Card NO-UNDO.
-    DEFINE VARIABLE oTempStack AS CLASS CardPile NO-UNDO.    
+    DEFINE VARIABLE oTempStack AS CLASS AssetPile NO-UNDO.    
+    DEFINE VARIABLE oPlayer    AS CLASS Player NO-UNDO.
     
     oTempCard1 = NEW Card('Gold', 50000).
     oTempCard2 = NEW Card('Gold', 50000).
     
-    oTempStack = NEW CardPile(2).   
+    oTempStack = NEW AssetPile(2).   
     oTempStack:oPileOfCards[1] = oTempCard1.
     oTempStack:oPileOfCards[2] = oTempCard2.
     
-    oAssetPile = NEW AssetPile().
+    oPlayer = NEW Player(1).
     
-    oAssetPile:addStack(oTempStack).
+    oPlayer:addStack(oTempStack).
     
-    // this sucks, i need to refactor the CardPile class a bit
-    DO itx = 1 TO EXTENT(oAssetPile:oStackPile[oAssetPile:iTopOfStackAsset - 1]):
-      DISPLAY oAssetPile:oStackPile[oAssetPile:iTopOfStackAsset - 1]:oPileOfCards[itx]:cName.
-      PAUSE.
-    END.      
-        
-  END METHOD.
-  
-     
+    OPENEDGE.CORE.ASSERT:EQUALS(1,oPlayer:iNumberOfValidStacks).
+  END.
+      
 END CLASS.

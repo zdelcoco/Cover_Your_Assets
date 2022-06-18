@@ -1,0 +1,74 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : testAsset
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 13:38:47 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS testAsset:
+  
+  DEFINE VARIABLE oAssetPile AS CLASS AssetPile NO-UNDO.
+  
+  @Before.
+  METHOD PUBLIC VOID setUpBeforeClass():    
+    RETURN.
+  END METHOD.
+
+  @Setup.
+  METHOD PUBLIC VOID setUp():      
+    RETURN.
+  END METHOD.
+
+  @TearDown.
+  METHOD PUBLIC VOID tearDown():      
+    RETURN.
+  END METHOD.
+
+  @After.
+  METHOD PUBLIC VOID tearDownAfterClass():        
+    RETURN.
+  END METHOD.
+  
+  @Test.
+  METHOD PUBLIC VOID emptyStack():
+    oAssetPile = NEW AssetPile(2).
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID addStack():
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DEFINE VARIABLE oTempCard1 AS CLASS Card NO-UNDO.
+    DEFINE VARIABLE oTempCard2 AS CLASS Card NO-UNDO.
+    DEFINE VARIABLE oTempStack AS CLASS AssetPile NO-UNDO.    
+    DEFINE VARIABLE oPlayer    AS CLASS Player NO-UNDO.
+    
+    oTempCard1 = NEW Card('Gold', 50000).
+    oTempCard2 = NEW Card('Gold', 50000).
+    
+    oTempStack = NEW AssetPile(2).   
+    oTempStack:oPileOfCards[1] = oTempCard1.
+    oTempStack:oPileOfCards[2] = oTempCard2.
+    
+    oPlayer = NEW Player(1).
+    
+    oPlayer:addStack(oTempStack).
+    
+    OPENEDGE.CORE.ASSERT:EQUALS(1,oPlayer:iNumberOfValidStacks).
+  END.
+  
+  @Ignore.
+  @Test.
+  METHOD PUBLIC VOID returnNumberOfValidStacks():
+           
+  END METHOD.
+  
+     
+END CLASS.

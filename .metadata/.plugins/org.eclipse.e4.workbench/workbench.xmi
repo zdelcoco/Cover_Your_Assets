@@ -178,7 +178,7 @@
           <tags>persp.perspSC:com.openedge.pdt.ve.veperspective</tags>
           <tags>persp.perspSC:com.progress.dbnavigator.plugin.perspectives.SQLExplorerPluginPerspective</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_K7c91uzzEeygcLIXaz3-Yw" selectedElement="_K7c93-zzEeygcLIXaz3-Yw" horizontal="true">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_K7c91-zzEeygcLIXaz3-Yw" containerData="1460" selectedElement="_K7c92uzzEeygcLIXaz3-Yw">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_K7c91-zzEeygcLIXaz3-Yw" containerData="1460" selectedElement="_K7c92OzzEeygcLIXaz3-Yw">
               <children xsi:type="basic:PartStack" xmi:id="_K7c92OzzEeygcLIXaz3-Yw" elementId="left" containerData="5000" selectedElement="_K7c92ezzEeygcLIXaz3-Yw">
                 <tags>noFocus</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_K7c92ezzEeygcLIXaz3-Yw" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_K7dmvezzEeygcLIXaz3-Yw" closeable="true">
@@ -208,8 +208,8 @@
               </children>
             </children>
             <children xsi:type="basic:PartSashContainer" xmi:id="_K7c93-zzEeygcLIXaz3-Yw" containerData="8540" selectedElement="_K7c94OzzEeygcLIXaz3-Yw">
-              <children xsi:type="advanced:Placeholder" xmi:id="_K7c94OzzEeygcLIXaz3-Yw" elementId="org.eclipse.ui.editorss" containerData="8328" ref="_K7dmouzzEeygcLIXaz3-Yw"/>
-              <children xsi:type="basic:PartStack" xmi:id="_K7c94ezzEeygcLIXaz3-Yw" elementId="bottom" containerData="1672" selectedElement="_K7c95OzzEeygcLIXaz3-Yw">
+              <children xsi:type="advanced:Placeholder" xmi:id="_K7c94OzzEeygcLIXaz3-Yw" elementId="org.eclipse.ui.editorss" containerData="7561" ref="_K7dmouzzEeygcLIXaz3-Yw"/>
+              <children xsi:type="basic:PartStack" xmi:id="_K7c94ezzEeygcLIXaz3-Yw" elementId="bottom" containerData="2439" selectedElement="_K7c95OzzEeygcLIXaz3-Yw">
                 <tags>Progress OpenEdge Editor</tags>
                 <tags>FabEclipse</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_K7c94uzzEeygcLIXaz3-Yw" elementId="org.eclipse.ui.console.ConsoleView" ref="_K7dnFuzzEeygcLIXaz3-Yw" closeable="true">
@@ -284,7 +284,7 @@
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_K7dmouzzEeygcLIXaz3-Yw" elementId="org.eclipse.ui.editorss" selectedElement="_K7dmo-zzEeygcLIXaz3-Yw">
       <children xsi:type="basic:PartSashContainer" xmi:id="_K7dmo-zzEeygcLIXaz3-Yw" selectedElement="_K7dmsuzzEeygcLIXaz3-Yw" horizontal="true">
-        <children xsi:type="basic:PartStack" xmi:id="_K7dmpOzzEeygcLIXaz3-Yw" elementId="org.eclipse.e4.primaryDataStack" containerData="4813" selectedElement="_Pz_iQO5tEeyyU9pmMuGUqg">
+        <children xsi:type="basic:PartStack" xmi:id="_K7dmpOzzEeygcLIXaz3-Yw" elementId="org.eclipse.e4.primaryDataStack" containerData="4813" selectedElement="_49QJIO5uEeyyU9pmMuGUqg">
           <tags>org.eclipse.e4.primaryDataStack</tags>
           <tags>EditorStack</tags>
           <children xsi:type="basic:Part" xmi:id="_K7dmpezzEeygcLIXaz3-Yw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Game.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/cls_file.gif" closeable="true">
@@ -300,13 +300,13 @@
             <tags>com.openedge.pdt.text.editor.OEEditor.cls</tags>
           </children>
           <children xsi:type="basic:Part" xmi:id="_i2gTQO5UEeyABv4j8m6RCA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CardPile.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/cls_file.gif" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.cls&quot; name=&quot;CardPile.cls&quot; partName=&quot;CardPile.cls&quot; title=&quot;CardPile.cls&quot; tooltip=&quot;CoverYourAssets/CardPile.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CoverYourAssets/CardPile.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;840&quot; selectionTopPixel=&quot;117&quot;/>&#xD;&#xA;&lt;/editor>"/>
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.cls&quot; name=&quot;CardPile.cls&quot; partName=&quot;CardPile.cls&quot; title=&quot;CardPile.cls&quot; tooltip=&quot;CoverYourAssets/CardPile.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CoverYourAssets/CardPile.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;22&quot; selectionOffset=&quot;1069&quot; selectionTopPixel=&quot;54&quot;/>&#xD;&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>com.openedge.pdt.text.editor.OEEditor.cls</tags>
           </children>
           <children xsi:type="basic:Part" xmi:id="_K7dmquzzEeygcLIXaz3-Yw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CardDeck.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/cls_file.gif" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.cls&quot; name=&quot;CardDeck.cls&quot; partName=&quot;CardDeck.cls&quot; title=&quot;CardDeck.cls&quot; tooltip=&quot;CoverYourAssets/CardDeck.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CoverYourAssets/CardDeck.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3083&quot; selectionTopPixel=&quot;240&quot;/>&#xD;&#xA;&lt;/editor>"/>
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.cls&quot; name=&quot;CardDeck.cls&quot; partName=&quot;CardDeck.cls&quot; title=&quot;CardDeck.cls&quot; tooltip=&quot;CoverYourAssets/CardDeck.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CoverYourAssets/CardDeck.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2176&quot; selectionTopPixel=&quot;465&quot;/>&#xD;&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>com.openedge.pdt.text.editor.OEEditor.cls</tags>
@@ -317,43 +317,43 @@
             <tags>removeOnHide</tags>
             <tags>com.openedge.pdt.text.editor.OEEditor.cls</tags>
           </children>
-          <children xsi:type="basic:Part" xmi:id="_VCB9IO5cEeyABv4j8m6RCA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="DiscardPile.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/cls_file.gif" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.cls&quot; name=&quot;DiscardPile.cls&quot; partName=&quot;DiscardPile.cls&quot; title=&quot;DiscardPile.cls&quot; tooltip=&quot;CoverYourAssets/DiscardPile.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CoverYourAssets/DiscardPile.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1043&quot; selectionTopPixel=&quot;185&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <children xsi:type="basic:Part" xmi:id="_Pz_iQO5tEeyyU9pmMuGUqg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="AssetPile.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/cls_file.gif" closeable="true">
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.cls&quot; name=&quot;AssetPile.cls&quot; partName=&quot;AssetPile.cls&quot; title=&quot;AssetPile.cls&quot; tooltip=&quot;CoverYourAssets/AssetPile.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CoverYourAssets/AssetPile.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;427&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>com.openedge.pdt.text.editor.OEEditor.cls</tags>
           </children>
-          <children xsi:type="basic:Part" xmi:id="_Pz_iQO5tEeyyU9pmMuGUqg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="AssetPile.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/cls_file.gif" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.cls&quot; name=&quot;AssetPile.cls&quot; partName=&quot;AssetPile.cls&quot; title=&quot;AssetPile.cls&quot; tooltip=&quot;CoverYourAssets/AssetPile.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CoverYourAssets/AssetPile.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1237&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <children xsi:type="basic:Part" xmi:id="_VCB9IO5cEeyABv4j8m6RCA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="DiscardPile.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/cls_file.gif" closeable="true">
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.cls&quot; name=&quot;DiscardPile.cls&quot; partName=&quot;DiscardPile.cls&quot; title=&quot;DiscardPile.cls&quot; tooltip=&quot;CoverYourAssets/DiscardPile.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CoverYourAssets/DiscardPile.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1043&quot; selectionTopPixel=&quot;136&quot;/>&#xD;&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>com.openedge.pdt.text.editor.OEEditor.cls</tags>
           </children>
           <children xsi:type="basic:Part" xmi:id="_49QJIO5uEeyyU9pmMuGUqg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Player.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/cls_file.gif" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.cls&quot; name=&quot;Player.cls&quot; partName=&quot;Player.cls&quot; title=&quot;Player.cls&quot; tooltip=&quot;CoverYourAssets/Player.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CoverYourAssets/Player.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1211&quot; selectionTopPixel=&quot;100&quot;/>&#xD;&#xA;&lt;/editor>"/>
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.cls&quot; name=&quot;Player.cls&quot; partName=&quot;Player.cls&quot; title=&quot;Player.cls&quot; tooltip=&quot;CoverYourAssets/Player.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CoverYourAssets/Player.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2268&quot; selectionTopPixel=&quot;249&quot;/>&#xD;&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>com.openedge.pdt.text.editor.OEEditor.cls</tags>
           </children>
         </children>
-        <children xsi:type="basic:PartStack" xmi:id="_K7dmsuzzEeygcLIXaz3-Yw" elementId="PartStack@2d7a012c" containerData="5187" selectedElement="_uWHdQO5sEeyyU9pmMuGUqg">
+        <children xsi:type="basic:PartStack" xmi:id="_K7dmsuzzEeygcLIXaz3-Yw" elementId="PartStack@2d7a012c" containerData="5187" selectedElement="_K7dmtezzEeygcLIXaz3-Yw">
           <tags>active</tags>
           <children xsi:type="basic:Part" xmi:id="_K7dmtezzEeygcLIXaz3-Yw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="testCardDeck.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/p_file.gif" closeable="true">
             <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.p&quot; name=&quot;testCardDeck.cls&quot; partName=&quot;testCardDeck.cls&quot; title=&quot;testCardDeck.cls&quot; tooltip=&quot;TestCoverYourAssets/tests/testCardDeck.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/TestCoverYourAssets/tests/testCardDeck.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2118&quot; selectionTopPixel=&quot;1207&quot;/>&#xD;&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>com.openedge.pdt.text.editor.OEEditor.p</tags>
-          </children>
-          <children xsi:type="basic:Part" xmi:id="_uWHdQO5sEeyyU9pmMuGUqg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="testAsset.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/p_file.gif" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.p&quot; name=&quot;testAsset.cls&quot; partName=&quot;testAsset.cls&quot; title=&quot;testAsset.cls&quot; tooltip=&quot;TestCoverYourAssets/tests/testAsset.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/TestCoverYourAssets/tests/testAsset.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1387&quot; selectionTopPixel=&quot;508&quot;/>&#xD;&#xA;&lt;/editor>"/>
-            <tags>Editor</tags>
-            <tags>removeOnHide</tags>
-            <tags>com.openedge.pdt.text.editor.OEEditor.p</tags>
             <tags>active</tags>
             <tags>activeOnClose</tags>
           </children>
+          <children xsi:type="basic:Part" xmi:id="_uWHdQO5sEeyyU9pmMuGUqg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="testAsset.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/p_file.gif" closeable="true">
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.p&quot; name=&quot;testAsset.cls&quot; partName=&quot;testAsset.cls&quot; title=&quot;testAsset.cls&quot; tooltip=&quot;TestCoverYourAssets/tests/testAsset.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/TestCoverYourAssets/tests/testAsset.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1253&quot; selectionTopPixel=&quot;542&quot;/>&#xD;&#xA;&lt;/editor>"/>
+            <tags>Editor</tags>
+            <tags>removeOnHide</tags>
+            <tags>com.openedge.pdt.text.editor.OEEditor.p</tags>
+          </children>
           <children xsi:type="basic:Part" xmi:id="_rDeV4O5uEeyyU9pmMuGUqg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="testPlayer.cls" iconURI="platform:/plugin/com.openedge.pdt.text/icons/16/p_file.gif" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.p&quot; name=&quot;testPlayer.cls&quot; partName=&quot;testPlayer.cls&quot; title=&quot;testPlayer.cls&quot; tooltip=&quot;TestCoverYourAssets/tests/testPlayer.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/TestCoverYourAssets/tests/testPlayer.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;725&quot; selectionTopPixel=&quot;168&quot;/>&#xD;&#xA;&lt;/editor>"/>
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.openedge.pdt.text.editor.OEEditor.p&quot; name=&quot;testPlayer.cls&quot; partName=&quot;testPlayer.cls&quot; title=&quot;testPlayer.cls&quot; tooltip=&quot;TestCoverYourAssets/tests/testPlayer.cls&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/TestCoverYourAssets/tests/testPlayer.cls&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;78&quot; selectionOffset=&quot;1085&quot; selectionTopPixel=&quot;136&quot;/>&#xD;&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>com.openedge.pdt.text.editor.OEEditor.p</tags>
@@ -520,7 +520,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_K7eMDezzEeygcLIXaz3-Yw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_DwiREO5lEeyyU9pmMuGUqg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_K7gClezzEeygcLIXaz3-Yw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_Iz-UgO8PEeyg3vnguIoXQg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_K7gClezzEeygcLIXaz3-Yw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_K7eMGuzzEeygcLIXaz3-Yw" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -554,7 +554,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_K7eMo-zzEeygcLIXaz3-Yw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_DwlUYO5lEeyyU9pmMuGUqg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_K7gCR-zzEeygcLIXaz3-Yw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_I0Awwe8PEeyg3vnguIoXQg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_K7gCR-zzEeygcLIXaz3-Yw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_K7eMr-zzEeygcLIXaz3-Yw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>

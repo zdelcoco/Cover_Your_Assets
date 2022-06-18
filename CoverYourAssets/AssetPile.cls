@@ -13,43 +13,11 @@ USING Progress.Lang.*.
 
 BLOCK-LEVEL ON ERROR UNDO, THROW.
 
-CLASS AssetPile: 
-  
-  DEFINE PUBLIC VARIABLE oStackPile AS CLASS CardPile EXTENT 55 NO-UNDO.
-    
-  DEFINE PROPERTY iNumberOfValidStacks AS INTEGER NO-UNDO
-    GET():
-      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
-      iNumberOfValidstacks = 0.
-      DO itx = 1 TO EXTENT(oStackPile):
-        IF oStackPile[itx]:oPileOfCards[1]:cType <> "Empty" THEN 
-          iNumberOfValidStacks = iNumberOfValidStacks + 1.
-      END.
-      RETURN iNumberOfValidStacks.
-    END GET.
-    PRIVATE SET. 
+CLASS AssetPile INHERITS CardPile: 
         
-  DEFINE PROPERTY iTopOfStackAsset AS INTEGER NO-UNDO
-    GET():
-      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
-      DO itx = 1 TO EXTENT(oStackPile):
-        IF oStackPile[itx]:oPileOfCards[1]:cType <> "Empty" THEN NEXT.
-        iTopOfStackAsset = itx.
-        RETURN iTopOfStackAsset.
-      END.
-    END GET.
-    PRIVATE SET.
-
-  CONSTRUCTOR PUBLIC AssetPile():
-    DEFINE VARIABLE itx AS INTEGER NO-UNDO. 
-    DO itx = 1 TO EXTENT(THIS-OBJECT:oStackPile):
-      THIS-OBJECT:oStackPile = NEW CardPile(2).
-    END.
-  END CONSTRUCTOR.
-  
-  METHOD PUBLIC LOGICAL addStack(INPUT ipoStack AS CardPile):
-    THIS-OBJECT:oStackPile[iTopOfStackAsset] = ipoStack.
-  END METHOD.  
+  CONSTRUCTOR PUBLIC AssetPile(ipiNumCards AS INTEGER):
+    SUPER(ipiNumCards).
+  END CONSTRUCTOR.  
 
   DESTRUCTOR PUBLIC AssetPile():
   END DESTRUCTOR.

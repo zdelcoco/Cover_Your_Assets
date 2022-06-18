@@ -15,6 +15,9 @@ BLOCK-LEVEL ON ERROR UNDO, THROW.
 
 CLASS Player: 
   
+  DEFINE PUBLIC VARIABLE oPlayerHand  AS CLASS Hand NO-UNDO.
+  DEFINE PUBLIC VARIABLE oPlayerStack AS CLASS AssetPile EXTENT 55 NO-UNDO.
+  
   DEFINE PROPERTY iPlayerID AS INTEGER NO-UNDO
     GET.
     PRIVATE SET.
@@ -34,13 +37,41 @@ CLASS Player:
       cPlayerName = cOutput.
     END SET.
     
-  DEFINE PUBLIC VARIABLE oPlayerHand  AS CLASS Hand NO-UNDO.
-  DEFINE PUBLIC VARIABLE oPlayerStack AS CLASS AssetPile NO-UNDO.
-
+  DEFINE PROPERTY iNumberOfValidStacks AS INTEGER NO-UNDO
+    GET():
+      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+      iNumberOfValidstacks = 0.
+      DO itx = 1 TO EXTENT(oPlayerStack):
+        IF oPlayerStack[itx]:oPileOfCards[1]:cType <> "Empty" THEN 
+          iNumberOfValidStacks = iNumberOfValidStacks + 1.
+      END.
+      RETURN iNumberOfValidStacks.
+    END GET.
+    PRIVATE SET. 
+        
+  DEFINE PROPERTY iTopOfStackAsset AS INTEGER NO-UNDO
+    GET():
+      DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+      DO itx = 1 TO EXTENT(oPlayerStack):
+        IF oPlayerStack[itx]:oPileOfCards[1]:cType <> "Empty" THEN NEXT.
+        iTopOfStackAsset = itx.
+        RETURN iTopOfStackAsset.
+      END.
+    END GET.
+    PRIVATE SET.     
+    
   CONSTRUCTOR PUBLIC Player(INPUT ipiPlayerID AS INTEGER):
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
     SUPER ().   
     THIS-OBJECT:iPlayerID = ipiPlayerID. 
-  END CONSTRUCTOR.                                   
+    DO itx = 1 TO EXTENT(oPlayerStack):
+      oPlayerStack[itx] = NEW AssetPile(2). // create empty stack array
+    END.
+  END CONSTRUCTOR.
+  
+  METHOD PUBLIC VOID addStack(ipoAssetPile AS AssetPile):
+    THIS-OBJECT:oPlayerStack[iTopOfStackAsset] = ipoAssetPile.
+  END.                                   
 
   DESTRUCTOR PUBLIC Player ( ):
   END DESTRUCTOR.
