@@ -31,5 +31,10 @@ CLASS testGame:
   METHOD PUBLIC VOID gameExists():  
       OPENEDGE.CORE.ASSERT:EQUALS(TRUE,VALID-OBJECT(oGame)).
   END METHOD. 
+  
+  @Test.
+  METHOD PUBLIC VOID gameSetup():
+    oGame:setup().
+  END.
      
 END CLASS.

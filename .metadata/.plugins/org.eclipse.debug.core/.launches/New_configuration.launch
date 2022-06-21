@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="abl.launchType">
+    <stringAttribute key="abl.client.PROVERSION" value="12.5 (64-bit)"/>
+    <stringAttribute key="abl.debug.ABL_PROGRAM" value="${workspace_loc:/CoverYourAssets/PASOEContent/static/auth/login.html}"/>
+    <stringAttribute key="abl.debug.ATTR_ABL_PROJECT_NAME" value="CoverYourAssets"/>
+    <booleanAttribute key="abl.debug.PROPATH_USE_DEFAULT" value="true"/>
+    <stringAttribute key="abl.i18n.CASE_TABLE" value="Basic"/>
+    <stringAttribute key="abl.i18n.COLLATION_TABLE" value="Basic"/>
+    <stringAttribute key="abl.i18n.DATE_FORMAT" value="mdy"/>
+    <intAttribute key="abl.i18n.FRACTIONAL_SEP" value="46"/>
+    <stringAttribute key="abl.i18n.INTERNAL_CODE_PAGE" value="1252"/>
+    <stringAttribute key="abl.i18n.STREAM_CODE_PAGE" value="1252"/>
+    <intAttribute key="abl.i18n.THOUSANDS_SEP" value="44"/>
+    <booleanAttribute key="abl.logging.APPEND_LOG" value="true"/>
+    <stringAttribute key="abl.logging.CLIENT_LOG" value="C:\DLC\WRK\12.5\client.log"/>
+    <booleanAttribute key="abl.profiling.ENABLE_LISTING" value="false"/>
+    <booleanAttribute key="abl.profiling.ENABLE_PROFILING" value="false"/>
+    <booleanAttribute key="abl.profiling.ENABLE_TRACING" value="false"/>
+    <stringAttribute key="abl.profiling.PROFILER_DESCRIPTION" value=""/>
+    <stringAttribute key="abl.profiling.PROFILER_DIRECTORY" value=""/>
+    <booleanAttribute key="abl.profiling.USE_RELATIVE_PATH" value="true"/>
+    <stringAttribute key="abl.startup.WORKING_DIRECTORY" value="C:\DLC\WRK\12.5"/>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/CoverYourAssets"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="4"/>
+    </listAttribute>
+    <booleanAttribute key="org.eclipse.debug.core.capture_output" value="false"/>
+    <booleanAttribute key="org.eclipse.debug.ui.ATTR_CONSOLE_OUTPUT_ON" value="false"/>
+</launchConfiguration>

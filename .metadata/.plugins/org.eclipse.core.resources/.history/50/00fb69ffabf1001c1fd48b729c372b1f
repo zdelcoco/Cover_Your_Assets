@@ -1,0 +1,57 @@
+@openapi.openedge.export FILE(type="REST", executionMode="singleton", useReturnValue="false", writeDataSetBeforeImage="false").
+ 
+ /*------------------------------------------------------------------------
+    File        : Game
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Tue Jun 14 08:46:40 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS Game: 
+
+  CONSTRUCTOR PUBLIC Game():
+    SUPER().    
+  END CONSTRUCTOR.
+  
+  DEFINE PUBLIC VARIABLE oCardDeck    AS CLASS CardDeck NO-UNDO.
+  DEFINE PUBLIC VARIABLE oDiscardPile AS CLASS CardPile NO-UNDO.
+  DEFINE PUBLIC VARIABLE oPlayerOne   AS CLASS Player   NO-UNDO.
+  DEFINE PUBLIC VARIABLE oPlayerTwo   AS CLASS Player   NO-UNDO.
+  DEFINE PUBLIC VARIABLE oPlayerThree AS CLASS Player   NO-UNDO.
+  DEFINE PUBLIC VARIABLE oPlayerFour  AS CLASS Player   NO-UNDO.  
+  DEFINE PUBLIC VARIABLE oPlayerArray AS CLASS Player   NO-UNDO EXTENT 4.
+  
+  DEFINE PRIVATE VARIABLE itx AS INTEGER NO-UNDO.
+  DEFINE PRIVATE VARIABLE jtx AS INTETER NO-UNDO.
+  
+  METHOD PUBLIC VOID setup():
+    oCardDeck    = NEW CardDeck(110).
+    oDiscardPile = NEW CardPile(110).
+    oPlayerOne   = NEW Player(1).
+    oPlayerTwo   = NEW Player(2).
+    oPlayerThree = NEW Player(3).
+    oPlayerFour  = NEW Player(4).
+    
+    oCardDeck:shuffle().
+    
+    DO itx = 1 TO 4:
+      DO jtx = 1 TO 4:
+        oPlayerArray[jtx]:oPlayerHand:addCard(oCardDeck:deal()).
+      END.
+    END.
+    
+  END METHOD.    
+  
+  
+
+  DESTRUCTOR PUBLIC Game():
+  END DESTRUCTOR.
+
+END CLASS.

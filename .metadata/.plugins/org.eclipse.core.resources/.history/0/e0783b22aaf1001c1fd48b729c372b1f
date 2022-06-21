@@ -1,0 +1,24 @@
+@openapi.openedge.export FILE(type="REST", executionMode="external", useReturnValue="false", writeDataSetBeforeImage="false").
+
+/*------------------------------------------------------------------------
+    File        : HelloWorld.p
+    Purpose     : 
+
+    Syntax      :
+
+    Description : 
+
+    Author(s)   : zdelcoco
+    Created     : Mon Jun 20 12:24:02 CDT 2022
+    Notes       :
+  ----------------------------------------------------------------------*/
+
+/* ***************************  Definitions  ************************** */
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+/* ********************  Preprocessor Definitions  ******************** */
+
+
+/* ***************************  Main Block  *************************** */
+MESSAGE "hello world!" VIEW-AS ALERT-BOX.

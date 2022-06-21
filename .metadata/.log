@@ -830,3 +830,415 @@ com.openedge.core.reflect.RCodeReadException: Compiler version was 1202 expected
 	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2022-06-20 11:52:06.099 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.8
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -data C:\Users\zdelcoco\pdsoe_125_workspaces\cover_your_assets -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-20 11:52:13.086
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.platform 1 0 2022-06-20 11:52:13.096
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - No action was needed while validating the OpenEdge installation path: C:\DLC\12.5. 
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-20 11:52:15.701
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+!SESSION 2022-06-20 11:54:43.356 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.8
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -data C:\Users\zdelcoco\pdsoe_125_workspaces\cover_your_assets -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-20 11:54:48.874
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.platform 1 0 2022-06-20 11:54:48.882
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - No action was needed while validating the OpenEdge installation path: C:\DLC\12.5. 
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-20 11:54:50.985
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.project 4 20001 2022-06-20 11:56:45.072
+!MESSAGE Unable to update tooling model on propath change as Propath has error(s) for project 'CoverYourAssets'.
+
+!ENTRY org.eclipse.ui 4 4 2022-06-20 11:56:45.229
+!MESSAGE To avoid deadlock while executing Display.syncExec() with argument: com.openedge.pdt.project.RestartRuntimeJob$1@d2a1389, thread Worker-0: Restarting CoverYourAssets AVM will interrupt UI thread.
+!SUBENTRY 1 org.eclipse.ui 4 4 2022-06-20 11:56:45.229
+!MESSAGE Worker-0: Restarting CoverYourAssets AVM thread is an instance of Worker or owns an ILock
+!STACK 0
+java.lang.IllegalStateException: Call stack for thread Worker-0: Restarting CoverYourAssets AVM
+	at java.management@11.0.8/sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at java.management@11.0.8/sun.management.ThreadImpl.getThreadInfo(ThreadImpl.java:466)
+	at org.eclipse.ui.internal.UILockListener.reportInterruption(UILockListener.java:209)
+	at org.eclipse.ui.internal.UILockListener.interruptUI(UILockListener.java:179)
+	at org.eclipse.ui.internal.PendingSyncExec.waitUntilExecuted(PendingSyncExec.java:92)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:155)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4622)
+	at com.openedge.pdt.project.RestartRuntimeJob.checkOkToStart(RestartRuntimeJob.java:114)
+	at com.openedge.pdt.project.RestartRuntimeJob.run(RestartRuntimeJob.java:83)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.ui 4 4 2022-06-20 11:56:45.229
+!MESSAGE UI thread waiting on a job or lock.
+!STACK 0
+java.lang.IllegalStateException: Call stack for thread main
+	at java.base@11.0.8/java.lang.Object.wait(Native Method)
+	at org.eclipse.core.internal.jobs.Semaphore.acquire(Semaphore.java:44)
+	at org.eclipse.core.internal.jobs.OrderedLock.doAcquire(OrderedLock.java:173)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:109)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:85)
+	at org.eclipse.core.internal.resources.WorkManager.endUnprotected(WorkManager.java:190)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2307)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2322)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:131)
+	at org.eclipse.ui.internal.editors.text.WorkspaceOperationRunner.run(WorkspaceOperationRunner.java:76)
+	at org.eclipse.ui.internal.editors.text.WorkspaceOperationRunner.run(WorkspaceOperationRunner.java:66)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.executeOperation(TextFileDocumentProvider.java:461)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.validateState(TextFileDocumentProvider.java:1037)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.validateState(AbstractTextEditor.java:4951)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSave(AbstractTextEditor.java:4851)
+	at com.openedge.pdt.text.editor.OETextEditor.doSave(OETextEditor.java:1302)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$TextEditorSavable.doSave(AbstractTextEditor.java:7182)
+	at org.eclipse.ui.Saveable.doSave(Saveable.java:213)
+	at org.eclipse.ui.internal.SaveableHelper.doSaveModel(SaveableHelper.java:333)
+	at org.eclipse.ui.internal.SaveablesList.lambda$2(SaveablesList.java:850)
+	at org.eclipse.ui.internal.SaveablesList$$Lambda$1173/0x0000000101238c40.run(Unknown Source)
+	at org.eclipse.ui.internal.SaveableHelper.lambda$3(SaveableHelper.java:271)
+	at org.eclipse.ui.internal.SaveableHelper$$Lambda$1174/0x0000000101239040.run(Unknown Source)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:436)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:352)
+	at org.eclipse.ui.internal.WorkbenchWindow.lambda$5(WorkbenchWindow.java:2368)
+	at org.eclipse.ui.internal.WorkbenchWindow$$Lambda$1175/0x0000000101239840.run(Unknown Source)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:72)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2366)
+	at org.eclipse.ui.internal.SaveableHelper.runProgressMonitorOperation(SaveableHelper.java:278)
+	at org.eclipse.ui.internal.SaveablesList.saveModels(SaveablesList.java:858)
+	at org.eclipse.ui.internal.SaveablesList.saveModels(SaveablesList.java:822)
+	at org.eclipse.ui.internal.SaveablesList.promptForSaving(SaveablesList.java:806)
+	at org.eclipse.ui.internal.SaveablesList.promptForSaving(SaveablesList.java:643)
+	at org.eclipse.ui.internal.SaveablesList.promptForSavingIfNecessary(SaveablesList.java:609)
+	at org.eclipse.ui.internal.SaveablesList.preCloseParts(SaveablesList.java:564)
+	at org.eclipse.ui.internal.SaveablesList.preCloseParts(SaveablesList.java:498)
+	at org.eclipse.ui.internal.WorkbenchPage.saveAll(WorkbenchPage.java:3621)
+	at org.eclipse.ui.internal.WorkbenchPage.saveAllEditors(WorkbenchPage.java:3603)
+	at org.eclipse.ui.internal.WorkbenchPage.saveAllEditors(WorkbenchPage.java:3530)
+	at com.openedge.pdt.project.util.OEProjectUtil.saveAll(OEProjectUtil.java:846)
+	at com.openedge.pdt.project.util.OEProjectUtil.saveAll(OEProjectUtil.java:839)
+	at com.openedge.pdt.project.RestartRuntimeJob.verifyUnSavedEditorState(RestartRuntimeJob.java:152)
+	at com.openedge.pdt.project.RestartRuntimeJob$1.run(RestartRuntimeJob.java:119)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:68)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:171)
+	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:152)
+	at org.eclipse.ui.internal.UISynchronizer$$Lambda$637/0x0000000100c45840.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.ui.internal.dialogs.EventLoopProgressMonitor.runEventLoop(EventLoopProgressMonitor.java:127)
+	at org.eclipse.ui.internal.dialogs.EventLoopProgressMonitor.internalWorked(EventLoopProgressMonitor.java:93)
+	at org.eclipse.core.runtime.ProgressMonitorWrapper.internalWorked(ProgressMonitorWrapper.java:101)
+	at org.eclipse.core.runtime.SubProgressMonitor.internalWorked(SubProgressMonitor.java:180)
+	at org.eclipse.core.runtime.SubProgressMonitor.worked(SubProgressMonitor.java:202)
+	at org.eclipse.core.runtime.SubMonitor$RootInfo.worked(SubMonitor.java:259)
+	at org.eclipse.core.runtime.SubMonitor.internalWorked(SubMonitor.java:661)
+	at org.eclipse.core.runtime.SubMonitor.worked(SubMonitor.java:676)
+	at org.eclipse.core.internal.resources.File.create(File.java:147)
+	at org.eclipse.core.internal.resources.File.create(File.java:184)
+	at org.eclipse.ui.wizards.datatransfer.ImportOperation.importFile(ImportOperation.java:557)
+	at org.eclipse.ui.wizards.datatransfer.ImportOperation.importRecursivelyFrom(ImportOperation.java:754)
+	at org.eclipse.ui.wizards.datatransfer.ImportOperation.importRecursivelyFrom(ImportOperation.java:763)
+	at org.eclipse.ui.wizards.datatransfer.ImportOperation.importFileSystemObjects(ImportOperation.java:649)
+	at org.eclipse.ui.wizards.datatransfer.ImportOperation.execute(ImportOperation.java:391)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.lambda$0(WorkspaceModifyOperation.java:110)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$$Lambda$1154/0x00000001011b9840.run(Unknown Source)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2295)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2322)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:131)
+	at com.openedge.pdt.project.facet.custom.FolderProjectInstallDelegate$ImportRunnable.run(FolderProjectInstallDelegate.java:188)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:236)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:146)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4622)
+	at com.openedge.pdt.project.facet.custom.FolderProjectInstallDelegate.copySources(FolderProjectInstallDelegate.java:156)
+	at com.openedge.pdt.project.facet.custom.FolderProjectInstallDelegate.doInstall(FolderProjectInstallDelegate.java:61)
+	at com.progress.openedge.pdt.ablservice.facet.ABLServiceFacetInstallDelegate.doInstall(ABLServiceFacetInstallDelegate.java:74)
+	at com.openedge.pdt.project.facet.AbstractOEFacetInstallDelegate.execute(AbstractOEFacetInstallDelegate.java:84)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.callDelegate(FacetedProject.java:1477)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modifyInternal(FacetedProject.java:441)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.mergeChangesInternal(FacetedProject.java:1181)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.access$2(FacetedProject.java:1117)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject$5.run(FacetedProject.java:1099)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2295)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2322)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.mergeChanges(FacetedProject.java:1109)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProjectWorkingCopy.commitChanges(FacetedProjectWorkingCopy.java:2020)
+	at com.openedge.pdt.project.facet.OEFacetUtil.addProjectFacet(OEFacetUtil.java:707)
+	at com.openedge.pdt.text.annotations.service.DefineServiceInterfaceWizard.addProjectFacets(DefineServiceInterfaceWizard.java:197)
+	at com.openedge.pdt.text.annotations.service.DefineServiceInterfaceWizard$1$1.run(DefineServiceInterfaceWizard.java:145)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:68)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:171)
+	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:152)
+	at org.eclipse.ui.internal.UISynchronizer$$Lambda$637/0x0000000100c45840.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:166)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:368)
+	at org.eclipse.jface.wizard.WizardDialog.run(WizardDialog.java:1034)
+	at com.openedge.pdt.text.annotations.service.DefineServiceInterfaceWizard.performFinish(DefineServiceInterfaceWizard.java:121)
+	at org.eclipse.jface.wizard.WizardDialog.finishPressed(WizardDialog.java:832)
+	at org.eclipse.jface.wizard.WizardDialog.buttonPressed(WizardDialog.java:472)
+	at org.eclipse.jface.dialogs.Dialog.lambda$0(Dialog.java:619)
+	at org.eclipse.jface.dialogs.Dialog$$Lambda$1106/0x00000001010ee040.accept(Unknown Source)
+	at org.eclipse.swt.events.SelectionListener$1.widgetSelected(SelectionListener.java:84)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4173)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3986)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3585)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:823)
+	at org.eclipse.jface.window.Window.open(Window.java:799)
+	at com.openedge.pdt.text.actions.resource.DefineServiceInterfaceHandler.execute(DefineServiceInterfaceHandler.java:23)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:283)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:95)
+	at java.base@11.0.8/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.8/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.8/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.8/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:318)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:252)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:173)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:156)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:498)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.executeItem(HandledContributionItem.java:438)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.handleWidgetSelection(AbstractContributionItem.java:449)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.lambda$2(AbstractContributionItem.java:475)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem$$Lambda$292/0x0000000100601040.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4173)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3986)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3585)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.ui.internal.Workbench$$Lambda$99/0x0000000100309440.run(Unknown Source)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base@11.0.8/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.8/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.8/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.8/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at app//org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at app//org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+	at app//org.eclipse.equinox.launcher.Main.main(Main.java:1441)
+
+!ENTRY org.eclipse.jface 2 0 2022-06-20 12:11:07.752
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-06-20 12:11:07.752
+!MESSAGE A conflict occurred for CTRL+SHIFT+P:
+Binding(CTRL+SHIFT+P,
+	ParameterizedCommand(Command(com.openedge.pdt.text.editor.actions.gotomatchingbracket,Go to Matching Bracket,
+		Go to Matching Bracket,
+		Category(com.openedge.pdt.text.editor.actions,OpenEdge source commands,OpenEdge source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2187cfc,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.openedge.pdt.text.editingscope,,,system)
+Binding(CTRL+SHIFT+P,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.goto.matching.bracket,Matching Character,
+		Go to Matching Character,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@61f2c1da,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-06-20 12:11:07.752
+!MESSAGE A conflict occurred for CTRL+SHIFT+C:
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(com.openedge.pdt.text.editor.actions.checksyntax,Check Syntax,
+		Check the syntax of the current program,
+		Category(com.openedge.pdt.text.editor.actions,OpenEdge source commands,OpenEdge source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@44a14a6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.openedge.pdt.text.editingscope,,,system)
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.toggle.comment,Toggle Comment,
+		Toggle Comment,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4a84239a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-06-20 12:11:07.752
+!MESSAGE A conflict occurred for CTRL+SHIFT+F:
+Binding(CTRL+SHIFT+F,
+	ParameterizedCommand(Command(com.openedge.pdt.text.editor.actions.correctcase,Correct Case,
+		Fix case of source code,
+		Category(com.openedge.pdt.text.editor.actions,OpenEdge source commands,OpenEdge source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@b3a49aa,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.openedge.pdt.text.editingscope,,,system)
+Binding(CTRL+SHIFT+F,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.format.document,Format,
+		Format selection,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7c31a506,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-06-20 12:11:07.752
+!MESSAGE A conflict occurred for CTRL+I:
+Binding(CTRL+I,
+	ParameterizedCommand(Command(com.openedge.pdt.text.editor.actions.fixindentation,Fix Indentation,
+		Fix line Indentation,
+		Category(com.openedge.pdt.text.editor.actions,OpenEdge source commands,OpenEdge source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@288a7102,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.openedge.pdt.text.editingscope,,,system)
+Binding(CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.format.active.elements,Format Active Elements,
+		Format active elements,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@43790f7a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-06-20 12:11:07.752
+!MESSAGE A conflict occurred for CTRL+O:
+Binding(CTRL+O,
+	ParameterizedCommand(Command(com.openedge.pdt.text.editor.actions.quickoutline,Quick Outline,
+		Show Quick Outline,
+		Category(com.openedge.pdt.text.editor.actions,OpenEdge source commands,OpenEdge source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1ad779a6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.openedge.pdt.text.editingscope,,,system)
+Binding(CTRL+O,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.quick_outline,Quick Outline,
+		Show the quick outline for the editor input,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6bbff66f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-06-20 12:11:07.752
+!MESSAGE A conflict occurred for CTRL+SHIFT+/:
+Binding(CTRL+SHIFT+/,
+	ParameterizedCommand(Command(com.openedge.pdt.text.editor.actions.singlelinecomment,Toggle Single Line Comment,
+		Toggle Single Line Comment,
+		Category(com.openedge.pdt.text.editor.actions,OpenEdge source commands,OpenEdge source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1046987b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.openedge.pdt.text.editingscope,,,system)
+Binding(CTRL+SHIFT+/,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.add.block.comment,Add Block Comment,
+		Add Block Comment,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1b4f57d6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-06-20 12:11:07.752
+!MESSAGE A conflict occurred for F3:
+Binding(F3,
+	ParameterizedCommand(Command(com.openedge.pdt.text.editor.actions.opendeclaration,Open Declaration,
+		Open the selected file,
+		Category(com.openedge.pdt.text.editor.actions,OpenEdge source commands,OpenEdge source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3af41750,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.openedge.pdt.text.editingscope,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.open.editor,Open Declaration,
+		Open an editor on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2e6c92ef,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.open.file.from.source,Open Selection,
+		Open an editor on the selected link,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@a4d4219,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-06-20 12:11:07.752
+!MESSAGE A conflict occurred for CTRL+SHIFT+ARROW_UP:
+Binding(CTRL+SHIFT+ARROW_UP,
+	ParameterizedCommand(Command(com.openedge.pdt.text.editor.actions.previousmember,Previous Member,
+		Add new property to the current program,
+		Category(com.openedge.pdt.text.editor.actions,OpenEdge source commands,OpenEdge source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6b5d5561,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.openedge.pdt.text.editingscope,,,system)
+Binding(CTRL+SHIFT+ARROW_UP,
+	ParameterizedCommand(Command(org.eclipse.wst.xml.ui.previousSibling,Previous Sibling,
+		Go to Previous Sibling,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@718991cd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-06-20 12:11:07.752
+!MESSAGE A conflict occurred for CTRL+SHIFT+ARROW_DOWN:
+Binding(CTRL+SHIFT+ARROW_DOWN,
+	ParameterizedCommand(Command(com.openedge.pdt.text.editor.actions.nextmember,Next Member,
+		Add new property to the current program,
+		Category(com.openedge.pdt.text.editor.actions,OpenEdge source commands,OpenEdge source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3bb88ef9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.openedge.pdt.text.editingscope,,,system)
+Binding(CTRL+SHIFT+ARROW_DOWN,
+	ParameterizedCommand(Command(org.eclipse.wst.xml.ui.nextSibling,Next Sibling,
+		Go to Next Sibling,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5b854e1d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+!SESSION 2022-06-21 16:16:06.333 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.8
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2022-06-21 16:16:13.253
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-21 16:16:19.817
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY com.openedge.pdt.platform 1 0 2022-06-21 16:16:19.920
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.pdt.platform.ProversionImpl} - No action was needed while validating the OpenEdge installation path: C:\DLC\12.5. 
+
+!ENTRY com.openedge.pdt.platform 4 0 2022-06-21 16:16:23.410
+!MESSAGE {Module: OEIDE, SubModule: com.openedge.core.util.DButil} - Unable to validate the OpenEdge installation path: C:\DLC\11.7.
+
+!ENTRY org.eclipse.jst.jsp.core 4 4 2022-06-21 16:16:28.378
+!MESSAGE A workspace crash was detected. The previous session did not exit normally. Not using saved taglib indexes.

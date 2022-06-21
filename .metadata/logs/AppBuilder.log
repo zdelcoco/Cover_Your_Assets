@@ -508,3 +508,4 @@ com.openedge.core.reflect.RCodeReadException: Compiler version was 1202 expected
 	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-06-20 11:56:45,088 [ERROR]  - Unable to update tooling model on propath change as Propath has error(s) for project 'CoverYourAssets'.

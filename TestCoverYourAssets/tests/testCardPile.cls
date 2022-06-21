@@ -15,7 +15,9 @@ BLOCK-LEVEL ON ERROR UNDO, THROW.
 
 CLASS testCardPile: 
   
-  DEFINE PRIVATE VARIABLE oCardPile AS CLASS CardPile NO-UNDO.
+  DEFINE PRIVATE VARIABLE oCardPile    AS CLASS CardPile NO-UNDO.
+  DEFINE PRIVATE VARIABLE oDiscardPile AS CLASS CardPile NO-UNDO.
+  DEFINE PRIVATE VARIABLE oAssetPile   AS CLASS CardPile NO-UNDO.
   DEFINE PRIVATE VARIABLE iLoopIndex   AS INTEGER NO-UNDO.
 
   @Before.
@@ -25,7 +27,7 @@ CLASS testCardPile:
   
   @Setup.
   METHOD PUBLIC VOID setUpBeforeEachTest():      
-    RETURN.
+    oDiscardPile = NEW CardPile(110).
   END METHOD.
     
   @TearDown.
@@ -36,7 +38,10 @@ CLASS testCardPile:
   @After.
   METHOD PUBLIC VOID tearDownAfterClass():        
     IF VALID-OBJECT(oCardPile) THEN DELETE OBJECT oCardPile.
+    IF VALID-OBJECT(oDiscardPile) THEN DELETE OBJECT oDiscardPile.
   END METHOD.
+  
+  /******************** CardPile **********************/
   
   @Test.
   METHOD PUBLIC VOID cardPileExists():
@@ -62,5 +67,92 @@ CLASS testCardPile:
     END.
     OPENEDGE.CORE.ASSERT:EQUALS(100,iCardCount).
   END METHOD.
+ 
+  /**************** Discard CardPile *******************/
+  
+  @Test.
+  METHOD PUBLIC VOID emptyDiscardPileExists():
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DO itx = 1 TO EXTENT(oDiscardPile:oCardArray):
+      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oDiscardPile:oCardArray[itx]:cType).
+    END.
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID addCardToDiscardPile():
+    DEFINE VARIABLE oTempCard AS Card NO-UNDO.
+    oTempCard = NEW Card("Silver", 25000).
+    oDiscardPile:addCard(oTempCard).
+    OPENEDGE.CORE.ASSERT:EQUALS("Wild",oDiscardPile:oCardArray[1]:cType).
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID removeCardFromDiscardPile():
+    DEFINE VARIABLE oTempCard AS Card NO-UNDO.
+    oTempCard = oDiscardPile:removeCard().
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID discardEntireHand():
+    DEFINE VARIABLE oCardArray AS CLASS CardDeck NO-UNDO.
+    DEFINE VARIABLE oHand AS CLASS Hand NO-UNDO.
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DEFINE VARIABLE iEmptyCard AS INTEGER NO-UNDO.
+    
+    oCardArray = NEW CardDeck(110).
+    oCardArray:shuffle().
+    
+    oHand = NEW Hand(4).
+    DO itx = 1 TO EXTENT(oHand:oCardArray):
+      oHand:oCardArray[itx] = oCardArray:deal().
+      oDiscardPile:addCard(oHand:discard(oHand:oCardArray[itx])).     
+    END.           
+    
+    // hand should be empty
+    DO itx = 1 TO EXTENT(oHand:oCardArray):
+      OPENEDGE.CORE.ASSERT:EQUALS("Empty",oHand:oCardArray[itx]:cType).
+    END.
+    
+    DO itx = 1 TO EXTENT(oDiscardPile:oCardArray):
+      IF oDiscardPile:oCardArray[itx]:cType = "Empty" THEN
+        iEmptyCard = iEmptyCard + 1.
+    END.    
+    // we should have 106 "empty" spots (110 minus 4 added cards)
+    OPENEDGE.CORE.ASSERT:EQUALS(106,iEmptyCard).
+    
+    // we've added 4 valid cards
+    OPENEDGE.CORE.ASSERT:EQUALS(4,oDiscardPile:iNumberOfValidCards).
+    
+    // top of stack should be 5, since we've added 4 cards
+    OPENEDGE.CORE.ASSERT:EQUALS(5,oDiscardPile:iTopOfStack).
+  END.
+  
+  /******************** Asset Stack CardPile ************************/
+  @Test.
+  METHOD PUBLIC VOID emptyStack():
+    oAssetPile = NEW CardPile(2).
+  END.
+  
+  @Test.
+  METHOD PUBLIC VOID addStack():
+    DEFINE VARIABLE itx AS INTEGER NO-UNDO.
+    DEFINE VARIABLE oTempCard1 AS CLASS Card NO-UNDO.
+    DEFINE VARIABLE oTempCard2 AS CLASS Card NO-UNDO.
+    DEFINE VARIABLE oTempStack AS CLASS CardPile NO-UNDO.    
+    DEFINE VARIABLE oPlayer    AS CLASS Player NO-UNDO.
+    
+    oTempCard1 = NEW Card('Gold', 50000).
+    oTempCard2 = NEW Card('Gold', 50000).
+    
+    oTempStack = NEW CardPile(2).   
+    oTempStack:oCardArray[1] = oTempCard1.
+    oTempStack:oCardArray[2] = oTempCard2.
+    
+    oPlayer = NEW Player(1).
+    
+    oPlayer:addStack(oTempStack).
+    
+    OPENEDGE.CORE.ASSERT:EQUALS(1,oPlayer:iNumberOfValidStacks).
+  END.
      
 END CLASS.

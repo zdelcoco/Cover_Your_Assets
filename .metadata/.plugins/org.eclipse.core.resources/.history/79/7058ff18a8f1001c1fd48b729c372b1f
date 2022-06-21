@@ -1,0 +1,30 @@
+@openapi.openedge.export FILE(type="REST", executionMode="singleton", useReturnValue="false", writeDataSetBeforeImage="false").
+ 
+ /*------------------------------------------------------------------------
+    File        : DiscardPile
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Fri Jun 17 11:41:25 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS DiscardPile INHERITS CardPile:    
+
+  CONSTRUCTOR PUBLIC DiscardPile(ipiNumCards AS INTEGER):
+    SUPER(ipiNumCards).    
+  END CONSTRUCTOR.
+  
+  METHOD PUBLIC VOID addCard(INPUT ipoCard AS Card):
+    THIS-OBJECT:oCardArray[iTopOfStack] = ipoCard.
+  END.  
+
+  DESTRUCTOR PUBLIC DiscardPile():
+  END DESTRUCTOR.
+
+END CLASS.

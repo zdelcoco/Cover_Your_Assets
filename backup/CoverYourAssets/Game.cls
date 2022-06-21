@@ -1,0 +1,26 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : Game
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : zdelcoco
+    Created     : Tue Jun 14 08:46:40 CDT 2022
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS Game: 
+
+  CONSTRUCTOR PUBLIC Game():
+    SUPER().    
+  END CONSTRUCTOR.
+  
+
+  DESTRUCTOR PUBLIC Game():
+  END DESTRUCTOR.
+
+END CLASS.

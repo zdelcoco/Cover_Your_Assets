@@ -1,3 +1,4 @@
+@openapi.openedge.export FILE(type="REST", executionMode="singleton", useReturnValue="false", writeDataSetBeforeImage="false").
  
  /*------------------------------------------------------------------------
     File        : CardPile
@@ -60,8 +61,12 @@ CLASS CardPile:
     RETURN ipiIndexOfCardInArray = iNumberOfValidCards.
   END METHOD.
   
+  METHOD PUBLIC VOID addCard(INPUT ipoCard AS Card):
+    THIS-OBJECT:oCardArray[iTopOfStack] = ipoCard.
+  END. 
+  
   METHOD PUBLIC Card removeCard():
-    IF iTopOfStack = 1 THEN RETURN ?.
+    IF THIS-OBJECT:iTopOfStack = 1 THEN RETURN ?.
     
     oTempCard = NEW Card(THIS-OBJECT:oCardArray[iNumberOfValidCards]:cName,
                          THIS-OBJECT:oCardArray[iNumberOfValidCards]:iValue).

@@ -1,3 +1,4 @@
+@openapi.openedge.export FILE(type="REST", executionMode="singleton", useReturnValue="false", writeDataSetBeforeImage="false").
  
  /*------------------------------------------------------------------------
     File        : Player
@@ -16,7 +17,7 @@ BLOCK-LEVEL ON ERROR UNDO, THROW.
 CLASS Player: 
   
   DEFINE PUBLIC VARIABLE oPlayerHand  AS CLASS Hand NO-UNDO.
-  DEFINE PUBLIC VARIABLE oPlayerStack AS CLASS AssetPile EXTENT 55 NO-UNDO.
+  DEFINE PUBLIC VARIABLE oPlayerStack AS CLASS CardPile EXTENT 55 NO-UNDO.
   
   DEFINE PROPERTY iPlayerID AS INTEGER NO-UNDO
     GET.
@@ -64,12 +65,13 @@ CLASS Player:
     DEFINE VARIABLE itx AS INTEGER NO-UNDO.
     SUPER ().   
     THIS-OBJECT:iPlayerID = ipiPlayerID. 
+    THIS-OBJECT:oPlayerHand = NEW Hand(4).
     DO itx = 1 TO EXTENT(oPlayerStack):
-      oPlayerStack[itx] = NEW AssetPile(2). // create empty stack array
+      oPlayerStack[itx] = NEW CardPile(2). // create empty stack array
     END.
   END CONSTRUCTOR.
   
-  METHOD PUBLIC VOID addStack(ipoAssetPile AS AssetPile):
+  METHOD PUBLIC VOID addStack(ipoAssetPile AS CardPile):
     THIS-OBJECT:oPlayerStack[iTopOfStackAsset] = ipoAssetPile.
   END.                                   
 
